@@ -1,7 +1,9 @@
 ---
 title: 如何解决安装 node-sass 一直失败的问题？
 date: 2017-03-03 22:07:02
-tags:
+tags: 
+ - npm 
+ - sass
 ---
 
 今天在家办公，配置公司项目时，安装 [node-sass](https://github.com/sass/node-sass) 各种不成功，切换node版本删了重新安装也没法解决，通过搜索终于找到了解决办法。
