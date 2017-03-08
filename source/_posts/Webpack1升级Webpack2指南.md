@@ -5,7 +5,11 @@ tags:
  - Webpack
 ---
 
-本文译自官方[英文原文](https://webpack.js.org/guides/migrating/)
+本文译自官方[英文文档](https://webpack.js.org/guides/migrating/)
+
+本文更像是一篇Change Log介绍，不涉及的webpack2使用教程，感兴趣的可以自行谷歌。之所以直接翻译官方文档，因为只有掌握了Webpack2 之于 webpack1的区别和修改，才能更好地进行项目升级。
+对于具体的项目升级实例，将会在后面的有关Vue项目介绍中提及。
+Webpack2对于Webpack1相关配置修改如下：
 
 ## `resolve.root`, `resolve.fallback`, `resolve.modulesDirectories`
 
