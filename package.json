@@ -6,7 +6,8 @@
     "version": "3.2.2"
   },
   "scripts": {
-    "deploy": "hexo clean && hexo generate && hexo deploy"
+    "deploy": "hexo clean && hexo generate && hexo deploy",
+    "push": "git add . && git status && git commit -m 'update blog'"
   },
   "dependencies": {
     "hexo": "^3.2.2",

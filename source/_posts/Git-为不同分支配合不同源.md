@@ -41,7 +41,7 @@ git branch -u mydomain/private private
 当你`checkout public` 分支时，你的 `git` 操作针对的就是 `github.com`  
 当你`checkout private` 分支时，你的 `git` 操作针对的就是 `git.mydomain.com`
 
-## 相关文章：
+## 相关文章
 * [Git - Different Remote for each Branch](http://stackoverflow.com/questions/15775183/git-different-remote-for-each-branch)
 
 
