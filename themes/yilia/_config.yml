@@ -46,7 +46,7 @@ reward_type: 1
 # 打赏wording
 reward_wording: '坚持原创技术分享，您的支持将鼓励我继续创作！'
 # 支付宝二维码图片地址，跟你设置头像的方式一样。比如：/assets/img/alipay.jpg
-alipay: /img/alipay.jpg
+alipay: false
 # 微信二维码图片地址
 weixin: /img/wechat.jpg
 
