@@ -1,6 +1,7 @@
 ---
 title: Git 快速上手教程
 date: 2017-02-14 15:27:41
+reward: true
 tags: Git
 ---
 

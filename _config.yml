@@ -3,9 +3,9 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Yuga'S Blog
-subtitle: Do amazing things!
-description: Yuga's coding notes.
+title: Yuga
+subtitle: 无以安抚吾心，何以兼济前端
+description: 学而不知道，与不学同<br>知而不能行，与不知同
 author: Yuga Sun
 language: zh-Hans
 timezone: Asia/Shanghai
@@ -39,8 +39,8 @@ relative_link: false
 future: true
 highlight:
   enable: true
-  line_number: false
-  auto_detect: false
+  line_number: true
+  auto_detect: true
   tab_replace:
 
 # Category & Tag
@@ -63,7 +63,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: next
+theme: yilia
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -78,21 +78,21 @@ search:
   format: html
   limit: 10000
 
-#jsonContent:
-#    meta: false
-#    pages: false
-#    posts:
-#      title: true
-#      date: true
-#      path: true
-#      text: true
-#      raw: false
-#      content: false
-#      slug: false
-#      updated: true
-#      comments: true
-#      link: false
-#      permalink: false
-#      excerpt: true
-#      categories: true
-#      tags: true
+jsonContent:
+    meta: false
+    pages: false
+    posts:
+      title: true
+      date: true
+      path: true
+      text: true
+      raw: false
+      content: false
+      slug: false
+      updated: true
+      comments: true
+      link: false
+      permalink: false
+      excerpt: true
+      categories: true
+      tags: true

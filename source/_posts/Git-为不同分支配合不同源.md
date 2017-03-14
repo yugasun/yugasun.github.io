@@ -1,6 +1,7 @@
 ---
 title: Git-为不同分支配置不同远程仓库
 date: 2017-03-10 13:59:17
+reward: true
 tags: Git
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: 如何解决安装 node-sass 一直失败的问题？
 date: 2017-03-03 22:07:02
+reward: true
 tags: 
  - npm 
  - sass

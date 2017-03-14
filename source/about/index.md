@@ -2,6 +2,7 @@
 title: 个人简历
 date: 2017-03-02 23:33:51
 comments: false
+reward: false
 ---
 
 ### 孙远高 
