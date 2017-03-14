@@ -39,7 +39,7 @@ relative_link: false
 future: true
 highlight:
   enable: true
-  line_number: true
+  line_number: false
   auto_detect: false
   tab_replace:
 
@@ -77,3 +77,22 @@ search:
   field: post
   format: html
   limit: 10000
+
+#jsonContent:
+#    meta: false
+#    pages: false
+#    posts:
+#      title: true
+#      date: true
+#      path: true
+#      text: true
+#      raw: false
+#      content: false
+#      slug: false
+#      updated: true
+#      comments: true
+#      link: false
+#      permalink: false
+#      excerpt: true
+#      categories: true
+#      tags: true
