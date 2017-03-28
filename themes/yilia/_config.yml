@@ -46,7 +46,7 @@ reward_type: 1
 # 打赏wording
 reward_wording: '坚持原创技术分享，您的支持将鼓励我继续创作！'
 # 支付宝二维码图片地址，跟你设置头像的方式一样。比如：/assets/img/alipay.jpg
-alipay: false
+alipay: /img/alipay.jpg
 # 微信二维码图片地址
 weixin: /img/wechat.jpg
 
@@ -95,4 +95,4 @@ friends:
   友情链接5: http://localhost:4000/
   友情链接6: http://localhost:4000/
 
-aboutme: Yuga<br>08年毕业于湖北大学<br><br>热爱前端技术<br>喜欢研究各种前沿技术<br>热爱运动，喜欢交朋友。<br>
+aboutme: Yuga<br>08年毕业于湖北大学<br>荣获国家一等奖学金<br><br>热爱前端技术<br>喜欢研究各种前沿技术<br>热爱运动，喜欢交朋友。<br>
