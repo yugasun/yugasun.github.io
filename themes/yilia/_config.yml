@@ -66,7 +66,7 @@ share_jia: true
 duoshuo: false
 
 # 填写你自己的 shortname
-disqus_shortname: yugasun
+disqus_shortname: false
 
 # 样式定制 - 一般不需要修改，除非有很强的定制欲望…
 style:
