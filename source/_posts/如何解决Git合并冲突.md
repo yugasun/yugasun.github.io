@@ -53,7 +53,7 @@ $ git pull
 3. `stash pop` 重新还原暂存区的修改内容：
 
 ```bash
-$ git bash pop
+$ git stash pop
 ```
 
 
