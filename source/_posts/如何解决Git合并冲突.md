@@ -127,7 +127,7 @@ webstorm是个很强大的集成开发工具，自然解决冲突的功能不在
 
 ### Visual Studio Code 开发工具
 
-Visual Studio Code 也是个很强大的开发工具，解决冲突也很简单高效，直接上动画图，一看就明白了：
+Visual Studio Code 也是个很强大的开发工具，解决冲突也很简单高效，前提是你需要安装 `Better Merge` 插件，直接上动画图，一看就明白了：
 
 {% asset_img vscode.gif Visual Studio Code resolve confligs method %}
 
