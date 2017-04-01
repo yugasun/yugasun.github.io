@@ -68,8 +68,11 @@ theme: yilia
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
+- type: git
   repo: https://github.com/yugasun/yugasun.github.io.git
+  branch: master
+- type: git
+  repo: https://git.coding.net/yugasun/yugasun.git
   branch: master
 
 search:
