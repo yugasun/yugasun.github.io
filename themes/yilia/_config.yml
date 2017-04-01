@@ -51,8 +51,8 @@ alipay: /img/alipay.jpg
 weixin: /img/wechat.jpg
 
 # Miscellaneous
-baidu_analytics: '759f033ddd0ce85cad9c9c4c5320bc6f'
-google_analytics: 'UA-85991013-2'
+baidu_analytics: '28d4aea1680535e760d13d954b54eddc'
+google_analytics: 'UA-85991013-1'
 favicon: /favicon.ico
 
 #你的头像url
