@@ -1,5 +1,5 @@
 ---
-title: ES6 的解构(rest)与扩展(spread)运算
+title: ES6 的扩展(spread)与剩余(rest)运算
 reward: true
 date: 2017-04-13 11:19:02
 tags: Javascript
