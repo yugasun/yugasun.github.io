@@ -15,13 +15,15 @@ tags:
 
 History API 是HTML5新增的历史记录API，它可以实现无刷新的更改地址栏链接，简单讲，就是当页面为 `yugasun.com`, 执行Javascript语句：
 
+<!-- more -->
+
 ```javascript
 window.history.pushState(null, null, '/about');
 ```
 
 之后，地址栏地址就会变成 `yugasun.com/about`, 但浏览器不会刷新页面，甚至不会检测目标页面是否存在。
 
-<!-- more -->
+
 
 ### History对象属性
 
