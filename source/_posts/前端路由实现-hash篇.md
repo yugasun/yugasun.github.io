@@ -179,8 +179,9 @@ loadComponent() {
     
 这样我们就完成了一个简单的hash路由了，可以将其应用到实际的SPA项目，快乐的玩耍了，不过还是有很多不完备的地方，感兴趣的可以继续完善，使其变得更加健壮。
 
-**运行效果图**  
-![](http://o6sbyl9mg.bkt.clouddn.com/14973245321228.jpg?attname=&e=1497328179&token=U66r3n2i5yp6BFinWLOReh8Ixk7rAxs8Cv6DEYiB:CwSXP-Sepb7ZXGD-QMGUrrl3Xug)
+**运行效果图**
+
+![](http://o6sbyl9mg.bkt.clouddn.com/14975156434876.gif?attname=&e=1497519273&token=U66r3n2i5yp6BFinWLOReh8Ixk7rAxs8Cv6DEYiB:I0yD1UUn4tjZKDMwjsCw25mVjPg)
 
 下一篇将介绍如何利用HTML5的 [History API](https://developer.mozilla.org/en-US/docs/Web/API/History) 来实现 `history` 模式的路由，尽请期待~。
 
