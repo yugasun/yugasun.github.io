@@ -11,6 +11,7 @@
     "push": "git push origin hexo"
   },
   "dependencies": {
+    "github-webhook-handler": "^0.6.0",
     "hexo": "^3.2.2",
     "hexo-deployer-git": "^0.2.0",
     "hexo-generator-archive": "^0.1.4",
