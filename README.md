@@ -4,12 +4,12 @@
 
 ## 添加文章
 
-```
+```bash
 hexo new '文章标题'
 ```
 
 ## 发布博客
 
-```
+```bash
 npm run deploy
 ```
