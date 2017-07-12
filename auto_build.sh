@@ -8,4 +8,4 @@ git pull
 git checkout hexo
 
 # generate hexo generate
-yarn && hexo g
+yarn && hexo generate
