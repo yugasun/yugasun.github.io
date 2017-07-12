@@ -6,4 +6,6 @@ git reset --hard origin/hexo
 git clean -f
 git pull
 git checkout hexo
-hexo g
+
+# generate hexo generate
+yarn && hexo g
