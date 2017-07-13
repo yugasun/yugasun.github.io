@@ -1,0 +1,31 @@
+<section id="comments">
+  <h1 class="comment-title">Comments</h1>
+
+  <div id="disqus_proxy_thread"></div>
+
+  <div id="disqus_thread">
+     <!-- 评论加载中... <br> <br> 注：如果长时间无法加载，请针对 disq.us | disquscdn.com | disqus.com 启用代理。 -->
+  </div>
+
+  <script>
+    window.disqusProxy = {
+      username: 'yugasun',
+      server: '<%= theme.disqus_proxy.server %>',
+      port: '<%= theme.disqus_proxy.port %>',
+      defaultAvatar: '<%= theme.disqus_proxy.default_avatar %>',
+      adminAvatar: '<%= theme.disqus_proxy.admin_avatar %>',
+      identifier: '<%= page.path %>'
+    };
+    window.disqus_config = function () {
+      this.page.url = '<%= page.permalink %>';
+      this.page.identifier = '<%= page.path %>';
+    };
+    var s = document.createElement('script');
+    s.src = '<%= theme.disqus_proxy.script_path %>';
+    s.async = true;
+    document.body.appendChild(s);
+  </script>
+
+  <link rel="stylesheet" href="<%= theme.disqus_proxy.css_path %>">
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
