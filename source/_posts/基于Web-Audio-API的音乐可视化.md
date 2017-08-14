@@ -87,7 +87,7 @@ gainNode.connect(audioCtx.destination)
 
 这将会形成一个音频节点图：
 
-![audio-node-graph](http://o6sbyl9mg.bkt.clouddn.com/audio-node-graph.png)
+![audio-node-graph](https://static.yugasun.com/audio-node-graph.png)
 
 也可以连接多个节点到一个效果节点上，比如需要混合多个音频源在一起，就让他们都通过一个效果节点。
 

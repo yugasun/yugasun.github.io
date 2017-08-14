@@ -126,14 +126,14 @@ server {
 ## 配置 `Github webhooks`
 
 进入 github 上的博客项目，点击右边的 `Settings` Tab, 找到 `Webhooks` 选项， 然后点击 `Add webhooks`，填写 `Payload URL` 和 `Secret`, 如下：
-![](http://o6sbyl9mg.bkt.clouddn.com/14998443006618.jpg)
+![](https://static.yugasun.com/14998443006618.jpg)
 
 注意：这里的 `Secret` 配置就是上面 node 服务中填写的 `mysecret` 变量。
 
 ## 验证
 
 绑定成功后，我们可以尝试提交一下代码，然后在 `Github` 的 `Webhooks` 选项中查看是否自动触发了接口，如下图：
-![](http://o6sbyl9mg.bkt.clouddn.com/14998448824107.jpg)
+![](https://static.yugasun.com/14998448824107.jpg)
 
 ## 总结
 
