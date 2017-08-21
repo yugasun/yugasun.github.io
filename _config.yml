@@ -3,9 +3,10 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Yuga
+title: Yuga Sun
 subtitle: 无以安抚吾心，何以兼济前端
-description: 学而不知道，与不学同<br>知而不能行，与不知同
+description: yugasun,高级前端工程师的个人博客
+keywords: yugasun,前端博客,Javascript,Nodejs,Git,Nginx,html5,css3
 author: Yuga Sun
 language: zh-Hans
 timezone: Asia/Shanghai
