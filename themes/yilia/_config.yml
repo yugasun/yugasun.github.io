@@ -52,7 +52,8 @@ weixin: https://static.yugasun.com/wechat.jpg
 
 # Miscellaneous
 baidu_analytics: '28d4aea1680535e760d13d954b54eddc'
-google_analytics: 'UA-85991013-1'
+# google_analytics: 'UA-85991013-1'
+google_analytics: false
 favicon: /favicon.ico
 
 #你的头像url
