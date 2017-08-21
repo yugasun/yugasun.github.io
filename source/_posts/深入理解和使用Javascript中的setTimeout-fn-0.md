@@ -48,7 +48,7 @@ alert('end');
 ```
 
 上面代码在浏览器中的任务队列如下图所示：
-![](http://o6sbyl9mg.bkt.clouddn.com/15021010673972.png)
+![](https://static.yugasun.com/15021010673972.png)
 
 
 以下摘自《Javascript高级程序编程（第三版）》：

@@ -161,7 +161,7 @@ var router = new SPARouter(el, routes, 'history');
 ```
 
 **运行效果图** 
-![](http://o6sbyl9mg.bkt.clouddn.com/14975153191670.gif?attname=&e=1497518956&token=U66r3n2i5yp6BFinWLOReh8Ixk7rAxs8Cv6DEYiB:38Thr9f-I-ztliBOV6tskv_CAoA)
+![](https://static.yugasun.com/14975153191670.gif?attname=&e=1497518956&token=U66r3n2i5yp6BFinWLOReh8Ixk7rAxs8Cv6DEYiB:38Thr9f-I-ztliBOV6tskv_CAoA)
 
 
 
