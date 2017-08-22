@@ -16,7 +16,8 @@ timezone: Asia/Shanghai
 url: https://yugasun.com
 root: /
 # permalink: :year/:month/:day/:title/
-permalink: :year:month:day/:title.html
+# permalink: :year:month:day/:title.html
+permalink: post/:title.html
 permalink_defaults:
 
 # Directory
