@@ -106,7 +106,7 @@ Hit return to start merge resolution tool (vimdiff):
 一般 Mac 会让你选择相应的tool，你只需要输入相应的工具名称即可，前提是你的电脑已经安装，比如我的安装了 [kdiff3](http://kdiff3.sourceforge.net/), 我只需要输入 kdiff3即可。
 然后会自动启动kdiff3界面如下：
 
-{% asset_img kdiff3.png Kdiff3 tool window %}
+![Kdiff3 tool window](https://static.yugasun.com/kdiff3.png)
 
 图中 `A` 为当前分支最新的一次提交，  `B` 为当前本地代码，`C` 为需要合并的分支的代码。然后你可以通过点击相应的冲突点来修改合并后的输出结果，然后保存后，如果还有其他的冲突文件，会继续弹出此界面，进行相应的修改。
 
@@ -121,16 +121,14 @@ $ git config merge.tool kdiff3
 
 webstorm是个很强大的集成开发工具，自然解决冲突的功能不在话下，直接上动画图，一看就明白了：
 
-{% asset_img webstorm.gif WebStorm resolve confligs method  %}
-
+![WebStorm resolve conflicts method](https://static.yugasun.com/webstorm.gif)
 
 
 ### Visual Studio Code 开发工具
 
 Visual Studio Code 也是个很强大的开发工具，解决冲突也很简单高效，前提是你需要安装 `Better Merge` 插件，直接上动画图，一看就明白了：
 
-{% asset_img vscode.gif Visual Studio Code resolve confligs method %}
-
+![Visual Studio Code resolve conflicts method](https://static.yugasun.com/vscode.gif)
 
 
 ### 直接废弃 `git merge` 操作
