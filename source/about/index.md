@@ -16,13 +16,17 @@ reward: false
 
 ### 擅长技能
 
-> **Javascript**&nbsp;&nbsp;&nbsp;&nbsp;→  **85%**     
-> **Vuejs**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→  **90%**   
-> **Webpack**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→  **85%**  
-> **D3**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→  **70%**  
-> **HTML5**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→  **80%**  
-> **CSS3**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→  **80%**  
-> **Nodejs**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→  **80%**  
-> **Reactjs**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→  **80%**  
-> **Angularjs**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→  **60%**  
+
+技能        |  熟练度
+----------- | ------------
+Javascript  |  85%
+Vuejs       |  90%
+Webpack     |  85%
+D3          |  70%
+HTML5       |  80%
+CSS3        |  80%
+Nodejs      |  80%
+Reactjs     |  80%
+Angularjs   |  60%
+Nginx       |  60%
 
