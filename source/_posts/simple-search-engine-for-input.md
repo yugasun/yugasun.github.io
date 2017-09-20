@@ -14,7 +14,7 @@ tags:
 1. 实现简单的搜索文字匹配
 2. 结合汉字拼音字典实现拼音搜索引擎
 
-PS: 本文均基于ES6语法实现，考虑到兼容性，通过 (webpack)[https://webpack.js.org/]工具 来进行编译输出ES5语法。
+PS: 本文均基于ES6语法实现，考虑到兼容性，通过 [webpack](https://webpack.js.org/)工具 来进行编译输出ES5语法。
 
 <!--more-->
 
