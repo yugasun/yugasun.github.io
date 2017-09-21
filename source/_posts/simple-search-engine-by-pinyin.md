@@ -7,9 +7,9 @@ tags:
   - Javascript
 ---
 
-本文主要是通过分析[pinyin-engine](https://github.com/aui/pinyin-engine)源码，一步步基于Javascript实现一个拼音搜索引擎，全部源码（包括注释）都发布在Github上：[SearchEngine](https://github.com/yugasun/SearchEngine)
+本文主要是通过分析[pinyin-engine](https://github.com/aui/pinyin-engine)源码，一步步基于Javascript实现一个拼音搜索引擎，并修复了大写英文字母搜索BUG和缓存上一次搜索结果BUG。全部源码（包括注释）都发布在Github上：[demo-pinyin-engine](https://github.com/jiandansousuo/demo-pinyin-engine)
 
-[在线Demo](https://demo.yugasun.com/SearchEngine/example)
+[在线Demo](https://demo.jiandansousuo.com/pinyin-engine/example/)
 
 本文主要分为两部分：
 
@@ -313,6 +313,9 @@ $input.oninput = $input.onpropertychange = function () {
       indexs = history.indexs
       data = history.data
     }
+    history.keyword = keyword
+    history.indexs = []
+    history.data = []
 
     // 遍历数据集
     indexs.map((item, index) => {
