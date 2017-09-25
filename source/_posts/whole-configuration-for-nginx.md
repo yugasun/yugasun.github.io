@@ -98,12 +98,21 @@ patch -p1 < ../sslconfig/patches/openssl__chacha20_poly1305_draft_and_rfc_ossl10
 cd ../
 ```
 
+### 添加 `echo-nginx-module`
+
+`echo-nginx-module` 模块为nginx服务，扩展了 `echo`, `sleep`, `time`, `exec` 等非常不错的 `shell` 风格的功能，她提供了各种工具帮助测试和调试nginx服务，项目地址：https://github.com/openresty/echo-nginx-module
+
+```
+wget -c https://github.com/openresty/echo-nginx-module/archive/v0.61.tar.gz -O echo-nginx-module.tar.gz
+tar zxf echo-nginx-module.tar.gz
+```
+
 ## 编译并安装Nginx
 
 接着就可以获取Nginx源码，并打上 Dynamic TLS Records 补丁：
 
 ```bash
-wget -c https://nginx.org/download/nginx-1.11.13.tar.gz
+wget -c https://nginx.org/download/nginx-1.12.1.tar.gz
 tar zxf nginx-1.12.1.tar.gz
 
 cd nginx-1.12.1/
@@ -116,7 +125,7 @@ cd ../
 
 ```bash
 cd nginx-1.12.1/
-./configure --add-module=../ngx_brotli --add-module=../nginx-ct-1.3.2 --with-openssl=../openssl --with-http_v2_module --with-http_ssl_module --with-http_gzip_static_module
+./configure --add-module=../echo-nginx-module --add-module=../ngx_brotli --add-module=../nginx-ct-1.3.2 --with-openssl=../openssl --with-http_v2_module --with-http_ssl_module --with-http_gzip_static_module
 
 make
 make install
@@ -293,43 +302,60 @@ chkconfig nginx on
 到此为止，Nginx 已经安装完毕。再来修改一下它的全局配置，打开 `/usr/local/nginx/conf/nginx.conf`，新增或修改以下内容：
 
 ```nginx
+# 进程用户
+user  nginx;
+worker_processes  1;
+
+error_log  /var/log/nginx/yugasun.com/last/error.default.log warn;
+pid        /var/run/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+
 http {
-    include            mime.types;
-    default_type       application/octet-stream;
+    include       mime.types;
+    default_type  application/octet-stream;
 
-    charset            UTF-8;
+    log_format  main  '$remote_addr - [$time_local] "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent"';
 
-    sendfile           on;
-    tcp_nopush         on;
-    tcp_nodelay        on;
+    log_format  nginx_cache  '{"remote_addr":"$remote_addr","time_local":"$time_local","request_method":"$request_method","request_uri":"$request_uri","status":"$status","http_referer":"$http_referer","http_user_agent":"$http_user_agent","cache_status":"$upstream_cache_status"}';
 
-    keepalive_timeout  60;
+    log_format  nodelog  '{"remote_addr":"$remote_addr","time_local":"$time_local","request_method":"$request_method","request_uri":"$request_uri","status":"$status","http_referer":"$http_referer","http_user_agent":"$http_user_agent","cache_status":"$upstream_cache_status"}';
 
-    #... ...#
+    # 默认编码
+    charset  utf-8;
+
+    # 默认日志
+    access_log  /var/log/nginx/yugasun.com/last/access.default.log  main;
+   
+    open_log_file_cache max=1000 inactive=60s;
+
+    sendfile        on;
+    tcp_nopush     on;
+    tcp_nodelay		on;
+
+    keepalive_timeout  65;
 
     gzip               on;
     gzip_vary          on;
-
     gzip_comp_level    6;
     gzip_buffers       16 8k;
-
     gzip_min_length    1000;
     gzip_proxied       any;
     gzip_disable       "msie6";
-
     gzip_http_version  1.0;
-
     gzip_types         text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript application/javascript image/svg+xml;
-
+    
     # 如果编译时添加了 ngx_brotli 模块，需要增加 brotli 相关配置
     brotli             on;
     brotli_comp_level  6;
     brotli_types       text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript application/javascript image/svg+xml;
 
-    #... ...#
 
-    # 此处为个人自定义nginx配置，请先创建 /opt/www/nginx_conf 目录
-    include            /opt/www/nginx_conf/*.conf;
+    include vhost/*.conf;
 }
 ```
 
@@ -341,132 +367,123 @@ http {
 
 ## Web 站点配置
 
-以下是本博客站点的完整配置：
+在 `vhost` 目录下新建 `yugasun.com.conf`, 配置如下：
 
 ```nginx
-#
-# HTTPS server configuration
-#
-
 server {
-    listen                    443 ssl http2 reuseport;
+    server_name yugasun.com www.yugasun.com;
+    root /opt/www/blog/public;
+    set $node_port 8360;
+    index index.html index.htm;
 
-    server_name               *.yugasun.com;
-    server_tokens             off;
+    # 加载ssl证书
+    listen                    	443 ssl http2;
 
-    #https://imququ.com/post/certificate-transparency.html#toc-2
-    ssl_ct			              on;
-    ssl_ct_static_scts		    /opt/www/scts;
+    server_tokens			off;
 
-    ssl_certificate         	/opt/www/ssl/chained.pem;
-    ssl_certificate_key     	/opt/www/ssl/domain.key;
+    # Certificate Transparency
+    ssl_ct                      	on;
+    ssl_ct_static_scts          	/usr/local/nginx/conf/scts;
 
-    #https://github.com/cloudflare/sslconfig/blob/master/conf
-    ssl_protocols              TLSv1 TLSv1.1 TLSv1.2;
-    ssl_ciphers                EECDH+CHACHA20:EECDH+CHACHA20-draft:EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES256:EECDH+3DES:RSA+3DES:!MD5;
-    ssl_prefer_server_ciphers  on;
+    # certs sent to the client in SERVER HELLO are concatenated in ssl_certificate
+    ssl_certificate             	/usr/local/nginx/conf/ssl/fullchain.pem;
+    ssl_certificate_key         	/usr/local/nginx/conf/ssl/privkey.pem;
+    ssl_session_cache          	shared:SSL:50m;
+    ssl_session_timeout        	1d;
+    ssl_session_tickets		off;
 
-    ssl_session_cache          shared:SSL:50m;
-    ssl_session_timeout        1d;
+    # intermediate configuration. tweak to your needs.
+    ssl_protocols              	TLSv1 TLSv1.1 TLSv1.2;
+    ssl_ciphers                	EECDH+CHACHA20:EECDH+CHACHA20-draft:EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES256:EECDH+3DES:RSA+3DES:!MD5;
+    ssl_prefer_server_ciphers  	on;
 
-    ssl_stapling               on;
-    ssl_stapling_verify        on;
+    # OCSP Stapling ---
+    # fetch OCSP records from URL in ssl_certificate and cache them
+    ssl_stapling               	on;
+    ssl_stapling_verify        	on;
 
-    ssl_trusted_certificate    /opt/www/ssl/full_chained.pem;
+    # verify chain of trust of OCSP response using Root CA and Intermediate certs
+    ssl_trusted_certificate    	/usr/local/nginx/conf/ssl/root_ca_cert_plus_intermediates.pem;
 
+    # nginx dns resolver
     resolver                   114.114.114.114 valid=300s;
     resolver_timeout           10s;
 
-    access_log 			           /opt/www/nginx_log/yugasun_com.log;
+    # 404重写
+    error_page 404 = /404.html;
+    
+    error_log   /var/log/nginx/yugasun.com/last/error.log   warn;
+    access_log  /var/log/nginx/yugasun.com/last/access.log  nginx_cache;
 
-    if ($request_method !~ ^(GET|HEAD|POST|OPTIONS)$ ) {
-        return 444;
+    # 禁止访问admin
+    location ^~ /admin {
+        return 403;
     }
 
-    if ($host = 'www.yugasun.com' ) {
+    if ( $host != 'yugasun.com' ){
         rewrite ^/(.*)$ https://yugasun.com/$1 permanent;
     }
 
+    # 拒绝访问根目录下的js配置
+    location ~* ^/[^\/]+\.js$ {
+        return 403;
+    }
+
+    if ($request_method !~ ^(GET|HEAD|POST|OPTIONS)$ ) {
+        return           444;
+    }
+
+    etag on;
+    gzip on;
+
+    # 静态文件
+    location ^~ /static/ {
+        add_header                  Access-Control-Allow-Origin *;      
+        expires                     max;
+    }
+
     location / {
-        proxy_http_version     	1.1;
 
-       	add_header            	Strict-Transport-Security "max-age=31536000; includeSubDomains; preload";
-        add_header        	    X-Frame-Options deny;
-        add_header              X-Content-Type-Options nosniff;
-        #add_header             Content-Security-Policy "default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' blob: https:; img-src data: https: http://ip.qgy18.com; style-src 'unsafe-inline' https:; child-src https:; connect-src 'self' https://translate.googleapis.com; frame-src https://disqus.com https://www.slideshare.net";
-        add_header              Public-Key-Pins 'pin-sha256="YLh1dUR9y6Kja30RrAn7JKnbQG/uEtLMkBgFF2Fuihg="; pin-sha256="aef6IF2UF6jNEwA2pNmP7kpgT6NFSdt7Tqf5HzaIGWI="; max-age=2592000; includeSubDomains';
-	      add_header        	    Cache-Control no-cache;
+        proxy_http_version   1.1;
 
-	      proxy_ignore_headers	  Set-Cookie;
+        add_header           Strict-Transport-Security "max-age=31536000; includeSubDomains; preload";
+        add_header           X-Frame-Options deny;
+        add_header           X-Content-Type-Options nosniff;
+        #add_header          Content-Security-Policy "default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' blob: https: https://yugasun.disqus.com; img-src data: https: http://static.yugasun.com; style-src 'unsafe-inline' https:; child-src https:; connect-src 'self' ws://ai.yugasun.com wss://ai.yugasun.com  https://translate.googleapis.com https://*.disqus.com; frame-src https://disqus.com https://www.slideshare.net; font-src 'self' data: https: https://static.yugasun.com";
+        add_header           Public-Key-Pins 'pin-sha256="YLh1dUR9y6Kja30RrAn7JKnbQG/uEtLMkBgFF2Fuihg="; pin-sha256="aef6IF2UF6jNEwA2pNmP7kpgT6NFSdt7Tqf5HzaIGWI="; max-age=2592000; includeSubDomains';
 
-	      proxy_hide_header	      Vary;
-	      proxy_hide_header	      X-Powered-By;
 
-    	  proxy_set_header    	  X-Via        	Yuga.Sun;
-    	  proxy_set_header     	  Connection    	"";
-        proxy_set_header    	  Host        	yugasun.com;
-    	  proxy_set_header    	  X-Real_IP    	$remote_addr;
-    	  proxy_set_header    	  X-Forwarded-For $proxy_add_x_forwarded_for;
+    	proxy_hide_header    Vary;
+    	proxy_hide_header    X-Powered-By;
 
-    	  # ai robot
-    	  if ( $host = 'ai.yugasun.com' ) {
-        	  proxy_pass http://127.0.0.1:5000;
-           	break;
-        }
+        proxy_set_header     X-Via           Yuga.Sun;
+        proxy_set_header     Connection     "upgrade";
+        proxy_set_header     Host            $host;
+        proxy_set_header     X-Real_IP       $remote_addr;
+        proxy_set_header     Upgrade     	$http_upgrade;
+        proxy_set_header     X-Forwarded-For $proxy_add_x_forwarded_for;
 
-    	  # demo
-    	  if ( $host = 'demo.yugasun.com' ) {
-        	  root        /opt/www/demo;
-        	  break;
-    	  }
-
-    	  # static server
-    	  if ( $host = 'static.yugasun.com' ) {
-          	root /opt/www/statics/uploads;
-           	add_header       Access-Control-Allow-Origin *;
-              	expires          max;
-          	break;
-    	  }
-
-   	    # md2ppt tool
-        if ( $host = 'md2ppt.yugasun.com' ) {
-          	proxy_pass http://127.0.0.1:3000;
-          	break;
-        }
-
-    	  root /opt/www/blog/public;
-        index index.html;
+	    proxy_redirect		off;
     }
-
-    location /upload {
-    	  if ( $host = 'static.yugasun.com' ) {
-            proxy_pass http://127.0.0.1:8001;
-        	  break;
-        }
-    }
-
+    # hexo blog auto build
     location /auto_build {
         proxy_pass http://127.0.0.1:6666;
     }
 }
 
 server {
-    server_name         *.yugasun.com;
-    server_tokens       off;
+    listen      80;
+    server_name yugasun.com www.yugasun.com;
 
-    access_log          /dev/null;
+    include 	inc/acme-challenge.conf;
 
-    if ($request_method !~ ^(GET|HEAD|POST)$ ) {
-        return 444;
-    }
+    access_log  off;
+    error_log   off;
 
-    location ^~ /.well-known/acme-challenge/ {
-        alias /opt/www/challenges/;
-        try_files $uri =404;
-    }
+    add_header strict-transport-security 'max-age=31536000; includeSubDomains; preload';
 
     location / {
-        rewrite ^/(.*)$ https://yugasun.com/$1 permanent;
+        rewrite ^(.*) https://yugasun.com$1 permanent;
     }
 }
 ```
