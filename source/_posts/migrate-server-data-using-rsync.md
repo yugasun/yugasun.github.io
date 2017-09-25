@@ -73,12 +73,16 @@ chmod 600 /etc/rsyncd.passwd
 
 ## 运行命令
 
-例如我需要同步 VPS 上的项目目录 `/opt/www`下所闻文件到阿里云目录 `/opt/www`下，命令如下：
+例如我需要同步 VPS 上的项目目录 `/opt/www` 下所有文件到阿里云目录 `/opt/www`下，命令如下：
 
 ```bash
 rsync -avz --progress --delete aliyun@104.128.82.150::www /opt/www
+```
 
-Password: <输入密码>
+然后输入密码，然后会开始同步传输，控制台会输出下面内容：
+
+```bash
+Password: 
 receiving incremental file list
 ./
 https_bak.conf
