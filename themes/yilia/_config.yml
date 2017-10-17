@@ -47,9 +47,9 @@ reward_type: 0
 reward_wording: '坚持原创技术分享，您的支持将鼓励我继续创作！'
 # 支付宝二维码图片地址，跟你设置头像的方式一样。比如：/assets/img/alipay.jpg
 # alipay: https://static.yugasun.com/alipay.jpg
-alipay: https://static.yugasun.com/alipay.jpg
+alipay: /static/alipay.jpg
 # 微信二维码图片地址
-weixin: https://static.yugasun.com/wechat.jpg
+weixin: /static/wechat.jpg
 
 # Miscellaneous
 baidu_analytics: '28d4aea1680535e760d13d954b54eddc'
@@ -58,7 +58,7 @@ google_analytics: false
 favicon: /favicon.ico
 
 #你的头像url
-avatar: https://static.yugasun.com/avatar.jpg
+avatar: /static/avatar.jpg
 
 #是否开启分享
 share_jia: true

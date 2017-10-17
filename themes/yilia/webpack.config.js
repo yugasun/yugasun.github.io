@@ -1,8 +1,8 @@
-var webpack = require("webpack");
-var autoprefixer = require('autoprefixer');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var CleanPlugin = require('clean-webpack-plugin');
+var webpack = require('webpack')
+var autoprefixer = require('autoprefixer')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+var CleanPlugin = require('clean-webpack-plugin')
 
 // 模板压缩
 // 详见：https://github.com/kangax/html-minifier#options-quick-reference
@@ -10,19 +10,19 @@ var CleanPlugin = require('clean-webpack-plugin');
 var minifyHTML = {
   collapseInlineTagWhitespace: true,
   collapseWhitespace: true,
-  minifyJS:true
+  minifyJS: true
 }
 
 module.exports = {
   entry: {
-    main: "./source-src/js/main.js",
-    slider: "./source-src/js/slider.js",
-    mobile: "./source-src/js/mobile.js"
+    main: './source-src/js/main.js',
+    slider: './source-src/js/slider.js',
+    mobile: './source-src/js/mobile.js'
   },
   output: {
-    path: "./source",
-    publicPath: "./",
-    filename: "[name].[chunkhash:6].js"
+    path: './source/static',
+    publicPath: './',
+    filename: '[name].[chunkhash:6].js'
   },
   module: {
     loaders: [{
@@ -40,7 +40,7 @@ module.exports = {
       loader: 'url-loader?limit=500&name=img/[name].[ext]'
     }, {
       test: /\.(woff|svg|eot|ttf)\??.*$/,
-      loader: "file-loader?name=fonts/[name].[hash:6].[ext]"
+      loader: 'file-loader?name=fonts/[name].[hash:6].[ext]'
     }]
   },
   alias: {
@@ -52,8 +52,8 @@ module.exports = {
     }
   },
   // devtool: '#eval-source-map',
-  postcss: function() {
-    return [autoprefixer];
+  postcss: function () {
+    return [autoprefixer]
   },
   plugins: [
     new ExtractTextPlugin('[name].[chunkhash:6].css'),
@@ -65,14 +65,14 @@ module.exports = {
       cache: false,
       minify: minifyHTML,
       template: './source-src/script.ejs',
-      filename: '../layout/_partial/script.ejs'
+      filename: '../../layout/_partial/script.ejs'
     }),
     new HtmlWebpackPlugin({
       inject: false,
       cache: false,
       minify: minifyHTML,
       template: './source-src/css.ejs',
-      filename: '../layout/_partial/css.ejs'
+      filename: '../../layout/_partial/css.ejs'
     })
   ],
   watch: true

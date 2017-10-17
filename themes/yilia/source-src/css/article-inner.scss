@@ -104,7 +104,7 @@
   em {
     font-style: italic;
   }
-  ul, ol{
+  ul {
     li:before{
       content: "";
       width: 6px;
@@ -120,8 +120,23 @@
   }
   ul,ol{
     font-size: 14px;
-    margin: 10px 0px;  
+    margin: 10px 0px;
   }
+
+  ol li{
+    counter-increment: list;
+    margin-left: 40px;
+  }
+  ol li:before {
+    background: none;
+    content: counter(list) ".";
+    color: #aaa;
+    display: inline-block;
+    margin-right: 10px;
+    float: left;
+    margin-top: 0;
+  }
+
   li{
     ul,ol{
       margin-left: 30px;
