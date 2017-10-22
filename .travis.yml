@@ -1,0 +1,26 @@
+language: node_js
+node_js:
+  - "7"
+compiler: gcc
+os:
+  - linux
+
+env:
+  global:
+    - GH_REF: github.com/yugasun/yugasun.github.io.git
+    - secure: g8YD1pYV3waZkhZSBafHCM2AYTcR3QkVmelFmUIjCDBkTtCpe7lVPRFzfEwLV10vfCEtlW1HJWjJ4ZztR/U0Z7F13tqCoLpRn8aOLiI5dxAvMlBiPg9z7MCQhIgqLaq+Aio+HcskuJd0q2cO9I2AX5cg8RacWnrVKE29H631RGnBvAFYoWlEDNdcbqnhw9UOpmaZlW+OLGNYz9M+sKEHBg50GQdW3EdHybXyQBILnVbsP/ZSSmyfYkwE9USUrIlzEPsgLPr83B0nx2G5cU7pSADqUT2y5SJuONPbDqSuV8v2RzUQgPwCMwvFTF/tXR8HfO8RY+Pa7hegr8+Qx41c1NlLGAE6dnqKDLw45q6htfQbmTjEi7zab3/Dgfx2kQ+ybwUQOfswlRBaiYQV92/cmcZ+PclggP6J7hXqd+59PLHXvskD8h5TzKg2NzMoRUuJDyTE29iMV/+loo8inVdO71ZxZQZs++2mDsvclMOSGCIR9jgwVPX2ZpGnXXf6a7tgqzRasKqh1ztUuMdZfXY9DotqciOVD8aYiu5YORaj6UcqF8455SD+fuK6RN8tQKtV4lIOz6Yj7Z3sz9VMBxiKC5Y/6l74S0OHoh8/C72wqnd8AL0NqE7FDk+V3W3XnjMQyUj2VSZW3shyXM5D0a4mI5igHz93Cd2KZ6q0HVJOCCo=
+
+# S: Build Lifecycle
+install:
+  - yarn install
+script:
+  - yarn run gen
+after_script:
+  - cd public
+  - git init
+  - git config user.name ${GIT_NAME}
+  - git config user.email ${GIT_EMAIL}
+  - git add .
+  - git commit -m "Update sites"
+  - git push -f "https://${GH_TOKEN}@${GH_REF}" master:gh-pages
+# E: Build LifeCycle
