@@ -1,5 +1,6 @@
 ---
 title: 前端路由实现 - hash篇
+desc: 前端基于hash路由的实现原理
 reward: true
 date: 2017-06-13 11:33:49
 tags: 
@@ -15,7 +16,7 @@ tags:
 * 一种是HTML5推出的 [History API](https://developer.mozilla.org/en-US/docs/Web/API/History)
 * 另一种 `hash` 路由，就是常见的 `#` 号，这种方式兼容性更好。
 
-<!-- more -->
+<!--more-->
 
 ## 需求分析
 

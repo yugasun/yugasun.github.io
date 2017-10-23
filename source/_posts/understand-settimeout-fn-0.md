@@ -1,5 +1,6 @@
 ---
 title: '深入理解和使用Javascript中的setTimeout(fn,0)'
+desc: 深入理解和使用Javascript中的setTimeout(fn,0)
 reward: true
 date: 2017-08-07 17:05:51
 tags:

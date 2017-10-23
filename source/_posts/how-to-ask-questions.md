@@ -1,5 +1,6 @@
 ---
 title: 提问的智慧
+desc: 任何人都应该学习的提问智慧，学会如何提问真的很重要
 date: 2017-02-13 18:23:20
 reward: true
 tags: 程序员自我修养
@@ -12,7 +13,7 @@ Copyright © 2001,2006,2014 Eric S. Raymond, Rick Moen
 GitHub地址：[简体中文版](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/master/README-zh_CN.md)  
 原文网址：[原文网址](http://www.catb.org/~esr/faqs/smart-questions.html)
 
-<!-- more --> 
+<!--more--> 
 
 Copyleft 2001 by D.H.Grand(nOBODY/Ginux), 2010 by Gasolin, 2015 by Ryan Wu
 

@@ -1,5 +1,6 @@
 ---
 title: Git-为不同分支配置不同远程仓库
+desc: Git-为不同分支配置不同远程仓库
 date: 2017-03-10 13:59:17
 reward: true
 tags: Git
@@ -7,7 +8,7 @@ tags: Git
 
 假设你从 [Github](https://github.com) 上克隆下来一份别人的优秀代码，然后自己有做了相应的二次开发，但是你又想同时保持源码，并需要做定期的 `pull` 操作。
 并希望能将源码新的 `commit` 合并到自己修改后的源码中。而你二次开发的代码存储在自己的私有仓库 `git.mydomain.com` 中。结构如下：
-<!-- more --> 
+<!--more--> 
 ## 逻辑视图
 
 ```bazaar

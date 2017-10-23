@@ -1,5 +1,6 @@
 ---
 title: 如何解决安装 node-sass 一直失败的问题？
+desc: 解决安装 node-sass 一直失败的问题
 date: 2017-03-03 22:07:02
 reward: true
 tags: 
@@ -12,7 +13,7 @@ tags:
 原来是因为：
 > 安装 `node-sass` 时，在 `node scripts/install` 脚本运行过程中，会从 github.com 下载文件名为 `.node` 文件，大部分安装不成功的原因都源自这里，因为 github Releases 里的文件都托管在 `s3.amazonaws.com` 上面，而这个网址在国内总是网络不稳定，所以我们需要通过第三方服务器下载这个文件。
 
-<!-- more --> 
+<!--more--> 
 
 知道了问题所在，解决办法就好办了。
 

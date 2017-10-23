@@ -1,5 +1,6 @@
 ---
 title: 前端路由实现 - history篇
+desc: 前端基于history路由的实现原理
 reward: true
 date: 2017-06-15 16:37:58
 tags:
@@ -15,7 +16,7 @@ tags:
 
 History API 是HTML5新增的历史记录API，它可以实现无刷新的更改地址栏链接，简单讲，就是当页面为 `yugasun.com`, 执行Javascript语句：
 
-<!-- more -->
+<!--more-->
 
 ```javascript
 window.history.pushState(null, null, '/about');

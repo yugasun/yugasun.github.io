@@ -14,13 +14,7 @@ env:
 install:
   - yarn install
 script:
-  - yarn run gen
+  - yarn gen
 after_script:
-  - cd public
-  - git init
-  - git config user.name 'yugasun'
-  - git config user.email 'yuga_sun@163.com'
-  - git add .
-  - git commit -m "Update site"
-  - git push -f "https://${GH_TOKEN}@${GH_REF}" master:gh-pages
+  - yarn test
 # E: Build LifeCycle

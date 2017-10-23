@@ -1,5 +1,6 @@
 ---
 title: 如何用JS创建包含0-99整数的数组
+desc: Javascript 有关数组创建的几种方法介绍
 reward: true
 date: 2017-03-28 22:29:43
 tags: Javascript
@@ -19,7 +20,7 @@ var arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
 
 Let's turn to the mutton!
 
-<!-- more --> 
+<!--more--> 
 
 ## 传统的 `for` 循环
 
