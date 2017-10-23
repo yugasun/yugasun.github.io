@@ -8,7 +8,7 @@ os:
 env:
   global:
     - GH_REF: github.com/yugasun/yugasun.github.io.git
-    - secure: "iPvEyC88zMU8nNfKH5FxQv7+XN5XfPFnMjiEgyKdxawjkMJkslcVCfDGriKGenmldMCiDE4shzZ8QKV0ImxqG+LjBmHhMsGntDX0GqRxz+o3QbbmPEzUt4ATHnF2QDDIMMtZ9tg6pg6JCtcEki7d56d16Kscv4QYdfQgJbJC8ZcizvVzFTuCpIddPQZOfDIIxNm3m1cLpAIDcdE0fB1B3NyGuB0nCSv2PSyNRCrPKlhi/JE3esAFq6Nl0h0LKJVqB6GgC2zMRSpxgNBl0NxHY57iNR1Aux8WEWuY6qWNdilBcYJTujyDshGxJGu4BsRZy4kJaBuqAa8hVZ1lPurPU+R5Xlsj0vSjGTY5k+UwW8uyxMVTs8kaRLlkCsGsaIFQCKvU95CFU4H8WCBTf4jZmDbAnSdr0mxH/JGHzoDRLSIZFlbWyOtrjVcVLNuwdBD0AcHH/HZouEIyqwtDCpjjE/Psw8lhlGLrJci7U7/LTlewOf0EzymDKsuPy93duREkq1HhCuUhcN84phPM8E1j/lctygVMS0XxSLr9gnWGmzJx+8Zodcr+rzNMLIaLMkCfZmGzszCwJAJkPU2yakHGzAXcM9BCv+rCyBQvPuDFx6q7zePWXnWPJonbxI11CQbNYDVCS3HfhVu24pauGuGzr8/PQmJyqgKYHjSUJ3e5Jj0="
+    - secure: "YE5MPf1EQ40EoAi7KKCheOlTcPstvkxlBWulhJEPB3YC/2+4pvUw6LdInluFDtQf4XNwjUV2j35Srmvc9sx3OlXnCiaDuRMsG95wlozwHhMM8dE1I6Rvm4Kzk4KyMfwlaqRmohPK+b655gRRbMfcf2+agABJGHKGStFYbrou3RHkE7+kaoZERCUA0Pw/yElpuAlnFSTx8xrD9Sf9KDpjfm8oYYJip8+psqjfTgIl6nARa2u9Ee33SkZ7sQRDxKkiCFKQOLeENpkOkZzMHIRhDu4gQ+2aYcLHK7jqZmLMY6azqDUX/OhzgxMXGS/WiPqm37LTWA1BhvmP10GiJWyqTzzIXH5fekWSzm+v10pFCUYj+3vV95KBSYkgB7UdRAf4c1Nia1uFVRSlCp+puXAQqBad6izpdAsEOYibN6zT+w9jzoK3kthDAgi9k4D8g5GrOLr6h5iNgvORKUCD86sTEv3WV0BUCvKVtjeLlHNvSlBWtrJzNh+IgQB34tfdMO7fyzy7/wMvT4PzqdH+SVK6QkFUlVeTbwhln59r7rtGCfOdCef7xhs72Af9/IYRZUiToPDziMaJv4DARX4fZ637zSP1+gBc6i1qFoN5zbm+p87qQeuJ3X+kkJ892kZETZiqXXVWh/A4oDO3Xif2pbJk5qTkgVqaIh34rVUkcIya+Nk="
 
 # S: Build Lifecycle
 install:
@@ -21,6 +21,6 @@ after_script:
   - git config user.name 'yugasun'
   - git config user.email 'yuga_sun@163.com'
   - git add .
-  - git commit -m "Update sites"
+  - git commit -m "Update site"
   - git push -f "https://${GH_TOKEN}@${GH_REF}" master:gh-pages
 # E: Build LifeCycle
