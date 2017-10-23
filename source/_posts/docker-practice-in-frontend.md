@@ -1,5 +1,6 @@
 ---
 title: Docker 在前端开发中的实践
+desc: Docker 技术在前端开发中的一些实践
 reward: true
 date: 2017-10-17 10:29:18
 tags:

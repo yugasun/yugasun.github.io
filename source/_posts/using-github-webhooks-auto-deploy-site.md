@@ -1,5 +1,6 @@
 ---
 title: 使用Github的webhooks进行网站自动化部署
+desc: 本文主要介绍使用Github的webhooks进行网站自动化部署的具体方法
 reward: true
 date: 2017-07-12 14:42:34
 tags:

@@ -1,5 +1,6 @@
 ---
-title: 使用rsync命来快速迁移服务器数据
+title: 使用 rsync 命来快速迁移服务器数据
+desc: 使用 rsync 命来快速迁移服务器数据
 reward: true
 date: 2017-09-25 15:59:36
 tags:

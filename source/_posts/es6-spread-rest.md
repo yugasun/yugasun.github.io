@@ -1,5 +1,6 @@
 ---
 title: ES6 的扩展(spread)与剩余(rest)运算
+desc: ES6 扩展运算和剩余运算的介绍
 reward: true
 date: 2017-04-13 11:19:02
 tags: Javascript
@@ -10,7 +11,7 @@ tags: Javascript
 > **剩余参数**（rest parameter）允许长度不确定的实参表示为一个数组。
 > 扩展 - `spread` 运算符是三个点`...` 。它好比 剩余 - `rest` 参数的逆运算，将一个数组转为用逗号分隔的参数序列。
 
-<!-- more -->
+<!--more-->
 
 ## 扩展语法 - spread
 

@@ -1,5 +1,6 @@
 ---
 title: 本博客 Nginx 配置完整篇
+desc: 本博客有关nginx服务器配置介绍，包括https和http2相关介绍
 reward: true
 date: 2017-08-19 15:06:36
 tags:

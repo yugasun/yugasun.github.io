@@ -1,5 +1,6 @@
 ---
 title: Git配置多个SSH-Key
+desc: Git配置多个SSH-Key
 date: 2017-02-14 16:00:49
 reward: true
 tags: Git
@@ -8,7 +9,7 @@ tags: Git
 我们在日常工作中会遇到公司有个gitlab，还有些自己的一些项目放在github上。
 这样就导致我们要配置不同的 SSH KEY 对应不同的环境。下面我们来看看具体的操作.
 
-<!-- more -->
+<!--more-->
 
 
 ## 生成一个公司用的SSH-Key

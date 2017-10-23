@@ -1,5 +1,6 @@
 ---
 title: Webpack1 升级 Webpack2 指南
+desc: Webpack1 升级 Webpack2 指南，本文更像是一篇Change Log介绍
 date: 2017-03-08 15:39:21
 reward: true
 tags: 
@@ -11,7 +12,7 @@ tags:
 本文更像是一篇Change Log介绍，不涉及的webpack2使用教程，感兴趣的可以自行谷歌。之所以直接翻译官方文档，因为只有掌握了Webpack2 之于 webpack1的区别和修改，才能更好地进行项目升级。
 对于具体的项目升级实例，将会在后面的有关Vue项目介绍中提及。
 Webpack2对于Webpack1相关配置修改如下：
-<!-- more --> 
+<!--more--> 
 ## `resolve.root`, `resolve.fallback`, `resolve.modulesDirectories`
 
 这下配置被替代成单个配置项 `resolve.modules` . 更多细节请参考 [resolving](https://webpack.js.org/configuration/resolve)。

@@ -4,11 +4,11 @@
 
 # Site
 title: Yuga Sun's Blog
-subtitle: 无以安抚吾心，何以兼济前端
-description: yugasun,高级前端工程师的个人博客
+subtitle: 幸有我来山未孤
+description: 前端工程师yugasun的个人博客
 keywords: yugasun,前端博客,Javascript,Nodejs,Git,Nginx,html5,css3
 author: yugasun
-language: zh-Hans
+language: zh-CN
 timezone: Asia/Shanghai
 
 # URL
@@ -68,16 +68,6 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 theme: yilia
 
-# Deployment
-## Docs: https://hexo.io/docs/deployment.html
-deploy:
-- type: git
-  repo: https://github.com/yugasun/yugasun.github.io.git
-  branch: master
-- type: git
-  repo: https://git.coding.net/yugasun/yugasun.git
-  branch: master
-
 search:
   path: search.xml
   field: post
@@ -85,20 +75,23 @@ search:
   limit: 10000
 
 jsonContent:
-    meta: false
+    meta: true
+    keywords: false # language name option
     pages: false
     posts:
       title: true
+      slug: true
       date: true
+      updated: true
+      comments: true
       path: true
+      link: true
+      permalink: true
+      excerpt: true
+      keywords: true # but only if root keywords option language was set
       text: true
       raw: false
       content: false
-      slug: false
-      updated: true
-      comments: true
-      link: false
-      permalink: false
-      excerpt: true
       categories: true
       tags: true
+      desc: true

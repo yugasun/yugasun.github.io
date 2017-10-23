@@ -1,5 +1,6 @@
 ---
 title: 正则表达式(实践篇)
+desc: 正则表达式(实践篇)
 reward: true
 date: 2017-05-15 14:03:44
 tags: 正则表达式
@@ -18,7 +19,7 @@ const regex = /ab+c/;
 const regex = /^[a-zA-Z]+[0-9]*\W?_$/gi;
 ```
 
-<!-- more -->
+<!--more-->
 
 2. 调用RegExp对象的构造函数
 
