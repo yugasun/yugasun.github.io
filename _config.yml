@@ -4,16 +4,16 @@
 
 # Site
 title: Yuga Sun's Blog
-subtitle: 幸有我来山未孤
-description: 前端工程师yugasun的个人博客
-keywords: yugasun,前端博客,Javascript,Nodejs,Git,Nginx,html5,css3
+subtitle: 前端工程师yugasun的个人博客
+description: 幸有我来山未孤
+keywords: "yugasun, Yuga Sun, 前端博客, https://yugasun.com"
 author: yugasun
-language: zh-CN
+language: zh-Hans
 timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://yugasun.com
+url: 'https://yugasun.com'
 root: /
 # permalink: :year/:month/:day/:title/
 # permalink: :year:month:day/:title.html
@@ -66,7 +66,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: yilia
+theme: next
 
 search:
   path: search.xml
