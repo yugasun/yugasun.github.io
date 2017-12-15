@@ -10,3 +10,4 @@ public/
 *.iml
 .vscode
 yarn.lock
+themes/next
