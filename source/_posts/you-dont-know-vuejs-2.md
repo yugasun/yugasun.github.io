@@ -8,6 +8,9 @@ tags:
   - You-Dont-Know-Vuejs
 ---
 
+> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-dont-know-vuejs-2.html](https://yugasun.com/post/you-dont-know-vuejs-2.html)  
+本文可全文转载，但需要保留原作者和出处。
+
 虽然说是Vuejs实践，但是有些重要的理论还是必不可少的，本文将简单的带你了解 `Vuejs的响应式原理`。
 
 > Vue 最独特的特性之一，是其非侵入性的响应式系统。数据模型仅仅是普通的 Javascript 对象。而当你修改它们时，视图会进行更新。这使得状态管理非常简单直接，不过理解其工作原理同样非常重要，这样你可以回避一些常见的问题。

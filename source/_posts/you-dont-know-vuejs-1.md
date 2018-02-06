@@ -8,6 +8,9 @@ tags:
   - You-Dont-Know-Vuejs
 ---
 
+> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-dont-know-vuejs-1.html](https://yugasun.com/post/you-dont-know-vuejs-1.html)  
+本文可全文转载，但需要保留原作者和出处。
+
 ## Vue.js是什么
 
 摘自官方文档：

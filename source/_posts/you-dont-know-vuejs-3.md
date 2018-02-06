@@ -8,6 +8,9 @@ tags:
   - You-Dont-Know-Vuejs
 ---
 
+> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-dont-know-vuejs-3.html](https://yugasun.com/post/you-dont-know-vuejs-3.html)  
+本文可全文转载，但需要保留原作者和出处。
+
 > 在 `Vuejs` 中，指令（Directives）是带有 `v-` 前缀的特殊属性。指令属性的预期值是 **单个 Javascript 表达式**（`v-for` 是个例外）。指令的职责是，当表达式改变时，将其产生的连带影响，响应式的作用于 DOM。
 
 当然，Vue 除了核心功能默认内置的指令外，更强大的是它允许注册自定义指令，这是个让我非常惊喜功能。因为当初在使用 `Angular1.x` 时就特别喜好自定义指令这个功能，没想到 Vue 也借鉴了进来，让我能够灵活对 DOM 进行底层操作，而且它具有非常高的复用性，书写起来也非常简洁。
