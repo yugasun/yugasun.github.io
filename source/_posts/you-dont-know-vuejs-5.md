@@ -316,7 +316,7 @@ h1 {
 }
 ```
 
-如果还不清除 `sass` 用法的，建议去看看这篇基础介绍文档：[SASS用法指南](http://www.ruanyifeng.com/blog/2012/06/sass.html)
+如果还不清楚 `sass` 用法的，建议去看看这篇基础介绍文档：[SASS用法指南](http://www.ruanyifeng.com/blog/2012/06/sass.html)
 
 ## 图片加载
 
