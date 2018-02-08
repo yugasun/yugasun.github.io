@@ -235,6 +235,151 @@ npm run dev
 
 同理，执行 `npm run build` 就是打包输出我们想要的 `build.js` 文件。
 
+## CSS预处理器
+
+虽然 css 已经足够强大，但是在程序员眼里，它一直是个很麻烦的东西，它没有变量，也没有条件语句，只是单纯的一行行的描述，写起来相当麻烦。于是各种 [CSS预处理器](https://www.catswhocode.com/blog/8-css-preprocessors-to-speed-up-development-time) 应运而生，其中我最喜欢的是 [SASS](http://sass-lang.com/)，使用 sass 语法编写我们的样式文件，会大大提高我们的开发效率，使得 css 工程化变得容易了很多。
+
+接下来介绍下，如何集成到我们的项目中。
+
+对于 webpack 来说 `一切皆模块`，所有的文件通过模块引入的方式形成依赖关系，而对于每个模块的引入或预处理，都是通过 `loader` 来实现了。因为我们的 `sass` 语法浏览器是无法识别的，所以在引入时需要使用相关 `loader` 对其进项预处理，转化为相应的 `css`。虽然 css 浏览器可以识别的，但是 `webpack` 本质上是一个 javascript 应用程序的静态模块打包器，一切文件内容都将处理为 javascript，然后进行后期的处理。所以这里除了需要预处理 `sass` 的 `loader`，还需要加载 `css` 的 `loader`，最后还需要通过 `style-loader` 来转化为通过 js 的方式动态创建 `style` 标签到 `index.html` 中。
+
+知道了这点，我们就知道要怎么做了，首先安装所需的 `loader`:
+
+```bash
+# 因为 `sass-loader` 需要依赖 `node-sass`, 所以这里一并安装
+npm install style-loader css-loader sass-loader node-sass --save-dev
+```
+
+修改 `webpack.config.js` 配置文件，添加相关 `loader` 配置：
+
+```js
+module.exports = {
+  //...
+  module: {
+    // 这里用来配置处理不同后缀文件所使用的loader
+    rules: [
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader'
+          },
+          {
+            loader: 'sass-loader'
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+> webpack 的 loader 是支持链式传递的，它能够对资源使用流水线(pipline)式处理，一组链式的 loader 将按照相反顺序依次处理，这里的处理流程就是：
+> sass-loader -> css-loader => style-loader
+
+配置好了，我们现在来测试下，在 `src` 目录下创建一个 `app.scss` 文件，内容如下：
+
+```scss
+$red: rgb(218, 42, 42);
+
+h1 {
+  color: $red;
+}
+```
+
+然后在 `src/app.js` 文件中引入：
+
+```js
+require('./app.scss');
+
+var Vue = require('vue');
+
+new Vue({
+  el: "#app",
+  template: "<h1>{{ msg }}</h1>",
+  data () {
+    return {
+      msg: 'Hello Vue.js'
+    }
+  }
+});
+```
+
+此时再运行 `npm run dev`，你会发现我们的 `h1` 标签颜色变了。通过审核元素，可以发现 `index.html` 的 `head` 标签中新增了一个 `style` 标签，内容就是，`app.scss` 编译输出的内容：
+
+```css
+h1 {
+  color: #da2a2a;
+}
+```
+
+如果还不清除 `sass` 用法的，建议去看看这篇基础介绍文档：[SASS用法指南](http://www.ruanyifeng.com/blog/2012/06/sass.html)
+
+## 图片加载
+
+既然说到了 css 静态资源，自然免不了对于图片的加载了。上文说过，在 webpack 中，一切皆模块，图片当然也是以模块的方式引入的。既然是模块，自然少不了相关引入的 loader，这里图片引入我们使用到的是 `url-loader`，先安装下：
+
+```bash
+npm install url-loader --save-dev
+```
+
+添加 `url-loader` 配置：
+
+```js
+module.exports = {
+  // ...
+  module: {
+    // 这里用来配置处理不同后缀文件所使用的loader
+    rules: [
+      // ...
+      {
+        test: /\.(jpe?g|gif|png)$/,
+        use: 'url-loader'
+      }
+    ]
+  }
+}
+```
+
+然后再 `app.js` 中引入：
+
+```js
+require('./app.scss');
+
+var Vue = require('vue');
+var logoSrc =  require('./logo.jpg')
+
+new Vue({
+  el: "#app",
+  data () {
+    return {
+      msg: 'Hello Vue.js'
+    }
+  },
+  render (h) {
+    return (
+      h('div', [
+        h('img', {
+          domProps: {
+            src: logoSrc,
+            alt: 'logo',
+            className: 'logo'
+          }
+        }),
+        h('h1', this.msg)
+      ])
+    )
+  }
+});
+```
+
+> 这里我们用 `render` 函数来自定义渲染我们的节点，它含有默认参数 `h` 就是我们 [花式渲染目标元素](https://yugasun.com/post/you-dont-know-vuejs-1.html) 讲到的 `createElement` 参数的别名而已，这里为了书写简单。`h` 函数的第一个参数为 `dom` 名称，第二个参数为创建时配置对象，通过 `domProps` 来添加 DOM 相关的属性值。这里将我们引入的 `logoSrc` 赋值给它的 `src` 属性。
+
+然后再重新运行 `npm run dev`，页面中就出现了我们想要的 `logo` 图片了。
+
 ## 总结
 
 `知己知彼，百战不殆`，我们只有真正了解了 `webpack` 的使用技巧，在实际开发中，我们才会更加的得心应手。不至于被一个莫名其妙的错误个吓到。程序员有三宝：`多学习，多编写，多总结`，我们的编程技巧才能才会不断提高。
