@@ -384,4 +384,4 @@ new Vue({
 
 `知己知彼，百战不殆`，我们只有真正了解了 `webpack` 的使用技巧，在实际开发中，我们才会更加的得心应手。不至于被一个莫名其妙的错误个吓到。程序员有三宝：`多学习，多编写，多总结`，我们的编程技巧才能才会不断提高。
 
-[源码在此](https://github.com/yugasun/You-Dont-Know-Vuejs/blob/master/chapter2)
+[源码在此](https://github.com/yugasun/You-Dont-Know-Vuejs/blob/master/chapter2/1)
