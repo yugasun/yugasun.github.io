@@ -8,7 +8,7 @@ tags:
   - You-Dont-Know-Vuejs
 ---
 
-> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-dont-know-vuejs-3.html](https://yugasun.com/post/you-dont-know-vuejs-3.html)  
+> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-dont-know-vuejs-3.html](https://yugasun.com/post/you-dont-know-vuejs-3.html)
 本文可全文转载，但需要保留原作者和出处。
 
 > 在 `Vuejs` 中，指令（Directives）是带有 `v-` 前缀的特殊属性。指令属性的预期值是 **单个 Javascript 表达式**（`v-for` 是个例外）。指令的职责是，当表达式改变时，将其产生的连带影响，响应式的作用于 DOM。
@@ -234,3 +234,13 @@ var app4 = new Vue({
 
 
 [源码在此](https://github.com/yugasun/You-Dont-Know-Vuejs/blob/master/chapter1/3.html)
+
+## 文章直通车
+
+0. [前言](https://yugasun.com/post/you-dont-know-vuejs-foreword.html)
+1. [花式渲染目标元素](https://yugasun.com/post/you-dont-know-vuejs-1.html)
+2. [深入浅出响应式系统](https://yugasun.com/post/you-dont-know-vuejs-2.html)
+3. [强大的指令系统](https://yugasun.com/post/you-dont-know-vuejs-3.html)
+4. [组件式开发](https://yugasun.com/post/you-dont-know-vuejs-4.html)
+5. [工欲善其事必先利其器](https://yugasun.com/post/you-dont-know-vuejs-5.html)
+6. [单文件组件](https://yugasun.com/post/you-dont-know-vuejs-6.html)
