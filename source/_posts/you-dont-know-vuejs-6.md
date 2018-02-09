@@ -8,7 +8,7 @@ tags:
 date: 2018-02-08 15:23:17
 ---
 
-> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/ou-dont-know-vuejs-6.html](https://yugasun.com/post/ou-dont-know-vuejs-6.html)
+> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-dont-know-vuejs-6.html](https://yugasun.com/post/you-dont-know-vuejs-6.html)
 本文可全文转载，但需要保留原作者和出处。
 
 ## 为什么需要单文件组件
