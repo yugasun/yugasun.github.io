@@ -8,7 +8,7 @@ tags:
   - You-Dont-Know-Vuejs
 ---
 
-> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-dont-know-vuejs-1.html](https://yugasun.com/post/you-dont-know-vuejs-1.html)  
+> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-dont-know-vuejs-1.html](https://yugasun.com/post/you-dont-know-vuejs-1.html)
 本文可全文转载，但需要保留原作者和出处。
 
 ## Vue.js是什么
@@ -27,7 +27,7 @@ tags:
 
 ## 起步
 
-其实使用 Vuejs 很简单，直接想你引入 `jquery` 方式一样，引入源码标签就行，如下：
+其实使用 Vuejs 很简单，直接像引入 `jquery` 方式一样，引入源码标签就行，如下：
 
 ```html
 <!-- 这里直接引入cdn源码，当然你也可把它下载下来，直接引入 -->

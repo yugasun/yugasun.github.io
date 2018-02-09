@@ -8,7 +8,7 @@ tags:
   - You-Dont-Know-Vuejs
 ---
 
-> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-dont-know-vuejs-2.html](https://yugasun.com/post/you-dont-know-vuejs-2.html)  
+> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-dont-know-vuejs-2.html](https://yugasun.com/post/you-dont-know-vuejs-2.html)
 本文可全文转载，但需要保留原作者和出处。
 
 虽然说是Vuejs实践，但是有些重要的理论还是必不可少的，本文将简单的带你了解 `Vuejs的响应式原理`。
@@ -27,7 +27,7 @@ tags:
 * 收集依赖：对于编译阶段依赖的数据进行监听（这个都是通过 `watcher` 对象实现的）
 * 通知更新：当步骤2中监听的数据发生变化时，会通知 `watcher` 进行重新计算，触发关联视图更新。
 
-可以简单理解为一个发布订阅系统，当然这里的过程介绍比较通俗，单纯是为了理解而解释的，实际流程其实还是很复杂的。如果想结合源码深入了解的，建议去阅读这篇文章：  
+可以简单理解为一个发布订阅系统，当然这里的过程介绍比较通俗，单纯是为了理解而解释的，实际流程其实还是很复杂的。如果想结合源码深入了解的，建议去阅读这篇文章：
 [Vue 源码解析：深入响应式原理](https://github.com/DDFE/DDFE-blog/issues/7)
 
 ## 关于Vuejs模板
@@ -120,7 +120,7 @@ var app = new Vue({
           url: tempArr[1]
         });
       })
-      return list;  
+      return list;
     }
   },
   methods: {
@@ -292,7 +292,7 @@ var app = new Vue({
 })
 ```
 
-点击按钮，你会发现 `username` 可以根据按钮点击更新了，这个属性再实际项目中非常实用，因为往往我们修改数据时，并不是整体赋值，大部分时候都是局部修改属性的，所以这个时候就需要通过设置 `deep` 属性为 `true`，来达到我们的侦听目的。
+点击按钮，你会发现 `username` 可以根据按钮点击更新了，这个属性在实际项目中非常实用，因为往往我们修改数据时，并不是整体赋值，大部分时候都是局部修改属性的，所以这个时候就需要通过设置 `deep` 属性为 `true`，来达到我们的侦听目的。
 
 问题来了，当侦听对象包含很多属性，而我们只是需要监听其中的一个或某几个属性，这时如果我们通过这种方式侦听所有内部属性的变化，自然就会造成内存的浪费。那么能不能只侦听单一内部属性的变化呢？答案是肯定的。
 
