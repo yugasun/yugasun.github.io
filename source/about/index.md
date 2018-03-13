@@ -5,10 +5,10 @@ comments: false
 reward: false
 ---
 
-### 孙远高 
+### 孙远高
 
-**Email**: yuga.sun.bj@gmail.com  
-**职位**: 高级前端工程师  
+**Email**: yuga.sun.bj@gmail.com
+**职位**: 高级前端工程师
 
 ### 个人简介
 
@@ -23,10 +23,11 @@ Javascript  |  85%
 Vuejs       |  90%
 Webpack     |  85%
 D3          |  70%
+Echart      |  80%
 HTML5       |  80%
 CSS3        |  80%
 Nodejs      |  80%
-Reactjs     |  80%
+Reactjs     |  65%
 Angularjs   |  60%
 Nginx       |  60%
 
