@@ -117,14 +117,6 @@ module.exports = {
 
 [源码在此](https://github.com/yugasun/You-Dont-Know-Vuejs/blob/master/chapter2/4)
 
-## 文章直通车
+## 专题目录
 
-0. [前言](https://yugasun.com/post/you-dont-know-vuejs-foreword.html)
-1. [花式渲染目标元素](https://yugasun.com/post/you-dont-know-vuejs-1.html)
-2. [深入浅出响应式系统](https://yugasun.com/post/you-dont-know-vuejs-2.html)
-3. [强大的指令系统](https://yugasun.com/post/you-dont-know-vuejs-3.html)
-4. [组件式开发](https://yugasun.com/post/you-dont-know-vuejs-4.html)
-5. [工欲善其事必先利其器](https://yugasun.com/post/you-dont-know-vuejs-5.html)
-6. [单文件组件](https://yugasun.com/post/you-dont-know-vuejs-6.html)
-7. [使用ES6快乐的玩耍](https://yugasun.com/post/you-dont-know-vuejs-7.html)
-8. [使用ESLint检查代码质量](https://yugasun.com/post/you-dont-know-vuejs-8.html)
+[You-Dont-Know-Vuejs](https://github.com/yugasun/You-Dont-Know-Vuejs#%E6%96%87%E7%AB%A0%E7%9B%B4%E9%80%9A%E8%BD%A6)
