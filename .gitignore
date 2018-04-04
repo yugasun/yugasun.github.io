@@ -10,3 +10,5 @@ public/
 *.iml
 .vscode
 yarn.lock
+yarn-error.log
+themes
