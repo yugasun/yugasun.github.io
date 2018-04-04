@@ -7,9 +7,7 @@
   },
   "scripts": {
     "gen": "hexo clean && hexo generate",
-    "test": "mocha --reporter spec --timeout 5000 --recursive test/spec/",
-    "postinstall": "npm run theme-clone",
-    "theme-clone": "git clone https://github.com/yugasun/hexo-theme-yilia ./themes/yilia"
+    "test": "mocha --reporter spec --timeout 5000 --recursive test/spec/"
   },
   "devDependencies": {
     "chai": "^4.1.2",
