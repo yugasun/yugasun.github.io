@@ -96,6 +96,7 @@ jsonContent:
       tags: true
       desc: true
 
+# pwa setttings
 pwa:
   manifest:
     path: /manifest.json
@@ -119,6 +120,8 @@ pwa:
         strategy: networkOnly
       - pattern: !!js/regexp /.*\.(js|css|jpg|jpeg|png|gif)$/
         strategy: cacheFirst
+      - pattern: !!js/regexp /.*\.(json)$/
+        strategy: networkFirst
       - pattern: !!js/regexp /\//
         strategy: networkFirst
   priority: 5

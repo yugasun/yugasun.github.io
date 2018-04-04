@@ -4,6 +4,7 @@
   "short_name": "yugasun",
   "start_url": ".",
   "display": "standalone",
+  "theme_color": "#4d4d4d",
   "background_color": "#eaeaea",
   "description": "前端工程师yugasun的个人博客",
   "icons": [{
@@ -27,7 +28,7 @@
     "sizes": "168x168",
     "type": "image/png"
   }, {
-    "src": "/static/pwa-icon192.png",
+    "src": "/static/pwa-icon192x192.png",
     "sizes": "192x192",
     "type": "image/png"
   }]
