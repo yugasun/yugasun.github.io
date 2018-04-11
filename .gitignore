@@ -11,4 +11,4 @@ public/
 .vscode
 yarn.lock
 yarn-error.log
-themes
+themes/*
