@@ -11,7 +11,7 @@ date: 2018-04-11 15:40:12
 > by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-dont-know-vuejs-10.html](https://yugasun.com/post/you-dont-know-vuejs-10.html)
 本文可全文转载，但需要保留原作者和出处。
 
-## 初始插件
+## 初识插件
 
 虽然 Vue.js 已经足够强大了，但是在实际开发中，我们还是需要引入各种模块来实现我们的功能需求，或者给全局的 Vue 对象添加一些全局功能，而 Vue `插件` 就是来帮助我们完成这项工作的。
 
