@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "hexo": {
-    "version": "3.7.0"
+    "version": "3.4.3"
   },
   "scripts": {
     "gen": "hexo clean && hexo generate",

@@ -81,53 +81,53 @@ export default {
 
 最后就是我们最重要的步骤了，改写 `main.js`，根据页面 `url` 动态切换渲染组件。
 
-1. 定义路由映射：
+1.定义路由映射：
 
-```js
-// url -> Vue Component
-const routes = {
-  '/': 'Home',
-  '/hello': 'HelloWorld',
-};
-```
+  ```js
+  // url -> Vue Component
+  const routes = {
+    '/': 'Home',
+    '/hello': 'HelloWorld',
+  };
+  ```
 
-2. 添加 `VueComponent` 计算属性，根据 `window.location.pathname` 来引入所需要组件。
+2.添加 `VueComponent` 计算属性，根据 `window.location.pathname` 来引入所需要组件。
 
-```js
-const app = new Vue({
-  el: '#app',
-  data() {
-    return {
-      // 当前路由
-      currentRoute: window.location.pathname,
-    };
-  },
-  computed: {
-    ViewComponent() {
-      const currentView = routes[this.currentRoute];
-      /* eslint-disable */
-      return (
-        currentView
-          ? require('./pages/' + currentView + '.vue')
-          : require('./pages/404.vue')
-      );
+  ```js
+  const app = new Vue({
+    el: '#app',
+    data() {
+      return {
+        // 当前路由
+        currentRoute: window.location.pathname,
+      };
     },
-  },
-});
-```
+    computed: {
+      ViewComponent() {
+        const currentView = routes[this.currentRoute];
+        /* eslint-disable */
+        return (
+          currentView
+            ? require('./pages/' + currentView + '.vue')
+            : require('./pages/404.vue')
+        );
+      },
+    },
+  });
+  ```
 
-3. 实现渲染逻辑，render 函数提供了一个参数 `createElement`，它是一个生成 VNode 的函数，可以直接将动态引入组件传参给它，执行渲染。
+3.实现渲染逻辑，render 函数提供了一个参数 `createElement`，它是一个生成 VNode 的函数，可以直接将动态引入组件传参给它，执行渲染。
 
-```js
-const app = new Vue({
-  // ...
-  render(h) {
-    // 因为组件是以 es module 的方式引入的，
-    // 此处必须使用 this.ViewComponent.default 属性作为参数
-    return h(this.ViewComponent.default);
-  }
-});
-```
+  ```js
+  const app = new Vue({
+    // ...
+    render(h) {
+      // 因为组件是以 es module 的方式引入的，
+      // 此处必须使用 this.ViewComponent.default 属性作为参数
+      return h(this.ViewComponent.default);
+    }
+  });
+  ```
 
 [最终实现代码](https://github.com/yugasun/You-Dont-Know-Vuejs/blob/master/chapter3/vue-router/simple)
 
