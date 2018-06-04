@@ -351,7 +351,7 @@ export default {
 </script>
 ```
 
-这样一阶组件，实现起来很简单，也没什么问题，我们只需要在子组件的 `props` 中写一遍 `id, value, placeholder...` 这样的属性定义就可以了。但是如果子组件又包含了子组件，而且同样需要传递 `id, value, placeholder...` 呢？甚至三阶、四街...呢？那么就需要我们在 `props` 中重复定义很多遍了，这怎么能忍呢？
+这样一阶组件，实现起来很简单，也没什么问题，我们只需要在子组件的 `props` 中写一遍 `id, value, placeholder...` 这样的属性定义就可以了。但是如果子组件又包含了子组件，而且同样需要传递 `id, value, placeholder...` 呢？甚至三阶、四阶...呢？那么就需要我们在 `props` 中重复定义很多遍了，这怎么能忍呢？
 
 于是 [vm.$attrs](https://cn.vuejs.org/v2/api/#vm-attrs) 可以闪亮登场了，先来看官方解释：
 
