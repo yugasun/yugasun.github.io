@@ -1,14 +1,14 @@
 ---
-title: 你不知道的Vuejs - Vuejs 自定义路由实现
+title: 你也许不知道的Vuejs - Vuejs 自定义路由实现
 desc: 关于Vuejs项目实战经验分享，一步一步带你学会用Vuejs框架开发项目。
 reward: true
 tags:
   - Vuejs
-  - You-Dont-Know-Vuejs
+  - You-May-Not-Know-Vuejs
 date: 2018-05-03 15:17:24
 ---
 
-> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-dont-know-vuejs-11.html](https://yugasun.com/post/you-dont-know-vuejs-11.html)
+> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-may-not-know-vuejs-11.html](https://yugasun.com/post/you-may-not-know-vuejs-11.html)
 本文可全文转载，但需要保留原作者和出处。
 
 对于单页面应用，前端路由是必不可少的，官方也提供了 [vue-router 库](https://github.com/vuejs/vue-router) 供我们方便的实现，但是如果你的应用非常简单，就没有必要引入整个路由库了，可以通过 Vuejs 动态渲染的API来实现。
@@ -129,7 +129,7 @@ export default {
   });
   ```
 
-[最终实现代码](https://github.com/yugasun/You-Dont-Know-Vuejs/blob/master/chapter3/vue-router/simple)
+[最终实现代码](https://github.com/yugasun/You-May-Not-Know-Vuejs/blob/master/chapter3/vue-router/simple)
 
 ## history 模式
 
@@ -236,7 +236,7 @@ window.addEventListener('popstate', () => {
 
 这样我们现在无论是点击页面中链接切换，还是点击浏览器 `前进/后退` 按钮，我们的页面都可以根据路由切换了。
 
-[最终实现代码](https://github.com/yugasun/You-Dont-Know-Vuejs/blob/master/chapter3/vue-router/history)
+[最终实现代码](https://github.com/yugasun/You-May-Not-Know-Vuejs/blob/master/chapter3/vue-router/history)
 
 ## hash 模式
 
@@ -266,7 +266,7 @@ window.addEventListener('hashchange', () => {
 
 最后还有个问题，就是单个面初始化的时候，`window.location.hash` 值为空，这样就会找不到路由映射。所以当页面初始化的时候，需要添加判断，如果 `window.location.hash` 为空，则默认修改为 `#/`，这样就全部完成了。
 
-[最终实现代码](https://github.com/yugasun/You-Dont-Know-Vuejs/blob/master/chapter3/vue-router/hash)
+[最终实现代码](https://github.com/yugasun/You-May-Not-Know-Vuejs/blob/master/chapter3/vue-router/hash)
 
 ## 不同模式切换版本
 
@@ -281,4 +281,4 @@ window.addEventListener('hashchange', () => {
 
 ## 专题目录
 
-[You-Dont-Know-Vuejs](https://github.com/yugasun/You-Dont-Know-Vuejs#%E6%96%87%E7%AB%A0%E7%9B%B4%E9%80%9A%E8%BD%A6)
+[You-May-Not-Know-Vuejs](https://github.com/yugasun/You-May-Not-Know-Vuejs#%E6%96%87%E7%AB%A0%E7%9B%B4%E9%80%9A%E8%BD%A6)

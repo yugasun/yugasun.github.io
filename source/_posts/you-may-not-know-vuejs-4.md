@@ -1,14 +1,14 @@
 ---
-title: 你不知道的Vuejs - 组件式开发
+title: 你也许不知道的Vuejs - 组件式开发
 desc: 关于Vuejs项目实战经验分享，一步一步带你学会用Vuejs框架开发项目。
 reward: true
 date: 2018-02-06 21:00:00
 tags:
   - Vuejs
-  - You-Dont-Know-Vuejs
+  - You-May-Not-Know-Vuejs
 ---
 
-> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-dont-know-vuejs-4.html](https://yugasun.com/post/you-dont-know-vuejs-4.html)
+> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-may-not-know-vuejs-4.html](https://yugasun.com/post/you-may-not-know-vuejs-4.html)
 本文可全文转载，但需要保留原作者和出处。
 
 ## 初识组件
@@ -17,7 +17,7 @@ tags:
 
 <!--more-->
 
-再来回顾下 [你不知道的Vuejs - 花式渲染目标元素](https://yugasun.com/post/you-dont-know-vuejs-1.html) 中的代码：
+再来回顾下 [你也许不知道的Vuejs - 花式渲染目标元素](https://yugasun.com/post/you-may-not-know-vuejs-1.html) 中的代码：
 
 ```html
 <div id="app1">
@@ -292,8 +292,8 @@ var app6 = new Vue({
 组件作为 Vue 中最强大的功能之一，其特性当然不止上面所提到的，感兴趣的同学可以到官方文档中阅读了解。学会封装可重用的代码，增加代码可复用性，是个需要长期学习和总结的过程，这个就需要我们在不断的项目开发中尝试和总结。本节也是关于 Vue 基础知识的最后一节，当然还有很多 Vue 的基础知识，文章中并未提到，因为官方文档已经非常详细了，篇幅有限，也不再一一介绍。请至少将官方文档仔细阅读一篇，以便理解后面的项目实战开发。从下一篇开始，我将进行实际项目开发讲解，尽请期待~
 
 
-[源码在此](https://github.com/yugasun/You-Dont-Know-Vuejs/blob/master/chapter1/4.html)
+[源码在此](https://github.com/yugasun/You-May-Not-Know-Vuejs/blob/master/chapter1/4.html)
 
 ## 专题目录
 
-[You-Dont-Know-Vuejs](https://github.com/yugasun/You-Dont-Know-Vuejs#%E6%96%87%E7%AB%A0%E7%9B%B4%E9%80%9A%E8%BD%A6)
+[You-May-Not-Know-Vuejs](https://github.com/yugasun/You-May-Not-Know-Vuejs#%E6%96%87%E7%AB%A0%E7%9B%B4%E9%80%9A%E8%BD%A6)

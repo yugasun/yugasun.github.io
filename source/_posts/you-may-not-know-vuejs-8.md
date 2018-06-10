@@ -1,14 +1,14 @@
 ---
-title: 你不知道的Vuejs - 使用ESLint检查代码质量
+title: 你也许不知道的Vuejs - 使用ESLint检查代码质量
 desc: 关于Vuejs项目实战经验分享，一步一步带你学会用Vuejs框架开发项目。
 reward: true
 tags:
   - Vuejs
-  - You-Dont-Know-Vuejs
+  - You-May-Not-Know-Vuejs
 date: 2018-03-13 18:19:16
 ---
 
-> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-dont-know-vuejs-8.html](https://yugasun.com/post/you-dont-know-vuejs-8.html)
+> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-may-not-know-vuejs-8.html](https://yugasun.com/post/you-may-not-know-vuejs-8.html)
 本文可全文转载，但需要保留原作者和出处。
 
 ## 前言
@@ -66,15 +66,15 @@ Ok， 配置好了~
 ```bash
 $ npm run lint
 
-> vue-webpack-demo@0.0.1 lint /Users/Yuga/Desktop/VueLearning/You-Dont-Know-Vuejs/chapter2/4
+> vue-webpack-demo@0.0.1 lint /Users/Yuga/Desktop/VueLearning/You-May-Not-Know-Vuejs/chapter2/4
 > eslint --ext .js,.vue src
 
-/Users/Yuga/Desktop/VueLearning/You-Dont-Know-Vuejs/chapter2/4/src/hello1.vue
+/Users/Yuga/Desktop/VueLearning/You-May-Not-Know-Vuejs/chapter2/4/src/hello1.vue
   17:16  error    Missing trailing comma        comma-dangle
   26:9   warning  Unexpected console statement  no-console
   38:9   warning  Unexpected console statement  no-console
 
-/Users/Yuga/Desktop/VueLearning/You-Dont-Know-Vuejs/chapter2/4/src/utils.js
+/Users/Yuga/Desktop/VueLearning/You-May-Not-Know-Vuejs/chapter2/4/src/utils.js
   15:3  warning  Unexpected console statement  no-console
 
 ✖ 4 problems (1 error, 3 warnings)
@@ -90,7 +90,7 @@ $ npm run lint
 虽然 `Airbnb` 的代码风格已经很成熟了，但是并不是满足任何人需求的。有些时候，如果想修改一些规则怎么办？这时我们可以通过在 `.eslintrc.js` 文件中添加 `rules` 字段来自定义。规则 [no-console](https://eslint.org/docs/rules/no-console) 就是用来规定禁止使用 `console` 来调试程序，`Airbnb` 代码风格在检查是会输出如下警告：
 
 ```bash
-/Users/Yuga/Desktop/VueLearning/You-Dont-Know-Vuejs/chapter2/4/src/hello1.vue
+/Users/Yuga/Desktop/VueLearning/You-May-Not-Know-Vuejs/chapter2/4/src/hello1.vue
   26:9  warning  Unexpected console statement  no-console
 ```
 
@@ -115,8 +115,8 @@ module.exports = {
 
 作为一名优秀的程序员，规范化的代码风格尤为重要，这不仅能降低代码出错率，而且非常有益于别人阅读你的代码。说到代码阅读，代码注释也是必不可少的。俗话说 `己所不欲，勿施于人`，如果你不想阅读 `shit` 一样的代码，那么就先从自身做起，赶紧在你的项目中实践起来吧~
 
-[源码在此](https://github.com/yugasun/You-Dont-Know-Vuejs/blob/master/chapter2/4)
+[源码在此](https://github.com/yugasun/You-May-Not-Know-Vuejs/blob/master/chapter2/4)
 
 ## 专题目录
 
-[You-Dont-Know-Vuejs](https://github.com/yugasun/You-Dont-Know-Vuejs#%E6%96%87%E7%AB%A0%E7%9B%B4%E9%80%9A%E8%BD%A6)
+[You-May-Not-Know-Vuejs](https://github.com/yugasun/You-May-Not-Know-Vuejs#%E6%96%87%E7%AB%A0%E7%9B%B4%E9%80%9A%E8%BD%A6)

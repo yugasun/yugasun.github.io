@@ -1,14 +1,14 @@
 ---
-title: 你不知道的Vuejs - Vuejs 最佳实践（1）
+title: 你也许不知道的Vuejs - Vuejs 最佳实践（1）
 desc: 关于Vuejs项目实战经验分享，一步一步带你学会用Vuejs框架开发项目。
 reward: true
 tags:
   - Vuejs
-  - You-Dont-Know-Vuejs
+  - You-May-Not-Know-Vuejs
 date: 2018-05-31 11:27:19
 ---
 
-> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-dont-know-vuejs-13.html](https://yugasun.com/post/you-dont-know-vuejs-13.html)
+> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-may-not-know-vuejs-13.html](https://yugasun.com/post/you-may-not-know-vuejs-13.html)
 本文可全文转载，但需要保留原作者和出处。
 
 有了前面文章的铺垫，相信一路看过来的新手的你开发一个中型的 Vuejs 应用已经不在话下，包括 Vuejs 生态核心工具（vue-router，vuex）的使用也不成问题。但是在实际项目开发过程中，我们要做的工作不仅仅是完成我们的业务代码，当一个需求完成后，我们还需要考虑更多后期优化工作，本篇主要讲述代码层面的优化。
@@ -391,8 +391,8 @@ export default {
 
 当然 Vuejs 的实践技巧远不止如此，这里只是总结了个人在实际开发中遇到的，而且正好是很多朋友容易忽视的地方。如果你有更好的实践方法，欢迎评论或者发邮件给我，一起交流学习。
 
-[源码在此](https://github.com/yugasun/You-Dont-Know-Vuejs/blob/master/chapter4/1)
+[源码在此](https://github.com/yugasun/You-May-Not-Know-Vuejs/blob/master/chapter4/1)
 
 ## 专题目录
 
-[You-Dont-Know-Vuejs](https://github.com/yugasun/You-Dont-Know-Vuejs#%E6%96%87%E7%AB%A0%E7%9B%B4%E9%80%9A%E8%BD%A6)
+[You-May-Not-Know-Vuejs](https://github.com/yugasun/You-May-Not-Know-Vuejs#%E6%96%87%E7%AB%A0%E7%9B%B4%E9%80%9A%E8%BD%A6)

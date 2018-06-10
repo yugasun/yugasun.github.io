@@ -1,14 +1,14 @@
 ---
-title: 你不知道的Vuejs - 花式渲染目标元素
+title: 你也许不知道的Vuejs - 花式渲染目标元素
 desc: 关于Vuejs项目实战经验分享，一步一步带你学会用Vuejs框架开发项目。
 reward: true
 date: 2018-02-01 11:09:08
 tags:
   - Vuejs
-  - You-Dont-Know-Vuejs
+  - You-May-Not-Know-Vuejs
 ---
 
-> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-dont-know-vuejs-1.html](https://yugasun.com/post/you-dont-know-vuejs-1.html)
+> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-may-not-know-vuejs-1.html](https://yugasun.com/post/you-may-not-know-vuejs-1.html)
 本文可全文转载，但需要保留原作者和出处。
 
 ## Vue.js是什么
@@ -236,8 +236,8 @@ new Vue({
 
 花式渲染目标元素介绍就到这里吧，虽然上面书写的是6中方式，实则实现了7种方法，当然如果你有不同的方式或者觉得有不对的地方，欢迎评论或者发邮件回复~
 
-[源码在此](https://github.com/yugasun/You-Dont-Know-Vuejs/blob/master/chapter1/1.html)
+[源码在此](https://github.com/yugasun/You-May-Not-Know-Vuejs/blob/master/chapter1/1.html)
 
 ## 专题目录
 
-[You-Dont-Know-Vuejs](https://github.com/yugasun/You-Dont-Know-Vuejs#%E6%96%87%E7%AB%A0%E7%9B%B4%E9%80%9A%E8%BD%A6)
+[You-May-Not-Know-Vuejs](https://github.com/yugasun/You-May-Not-Know-Vuejs#%E6%96%87%E7%AB%A0%E7%9B%B4%E9%80%9A%E8%BD%A6)

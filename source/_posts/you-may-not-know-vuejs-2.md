@@ -1,14 +1,14 @@
 ---
-title: 你不知道的Vuejs - 深入浅出响应式系统
+title: 你也许不知道的Vuejs - 深入浅出响应式系统
 desc: 关于Vuejs项目实战经验分享，一步一步带你学会用Vuejs框架开发项目。
 reward: true
 date: 2018-02-02 21:09:08
 tags:
   - Vuejs
-  - You-Dont-Know-Vuejs
+  - You-May-Not-Know-Vuejs
 ---
 
-> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-dont-know-vuejs-2.html](https://yugasun.com/post/you-dont-know-vuejs-2.html)
+> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-may-not-know-vuejs-2.html](https://yugasun.com/post/you-may-not-know-vuejs-2.html)
 本文可全文转载，但需要保留原作者和出处。
 
 虽然说是Vuejs实践，但是有些重要的理论还是必不可少的，本文将简单的带你了解 `Vuejs的响应式原理`。
@@ -329,8 +329,8 @@ var app = new Vue({
 
 这样我们就可以根据项目实际情况，灵活的使用侦听器来侦听我们所关注的属性了，赶紧动手试一试吧~
 
-[源码在此](https://github.com/yugasun/You-Dont-Know-Vuejs/blob/master/chapter1/2.html)
+[源码在此](https://github.com/yugasun/You-May-Not-Know-Vuejs/blob/master/chapter1/2.html)
 
 ## 专题目录
 
-[You-Dont-Know-Vuejs](https://github.com/yugasun/You-Dont-Know-Vuejs#%E6%96%87%E7%AB%A0%E7%9B%B4%E9%80%9A%E8%BD%A6)
+[You-May-Not-Know-Vuejs](https://github.com/yugasun/You-May-Not-Know-Vuejs#%E6%96%87%E7%AB%A0%E7%9B%B4%E9%80%9A%E8%BD%A6)

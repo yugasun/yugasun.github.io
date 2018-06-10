@@ -1,14 +1,14 @@
 ---
-title: 你不知道的Vuejs - Vuejs 插件开发
+title: 你也许不知道的Vuejs - Vuejs 插件开发
 desc: 关于Vuejs项目实战经验分享，一步一步带你学会用Vuejs框架开发项目。
 reward: true
 tags:
   - Vuejs
-  - You-Dont-Know-Vuejs
+  - You-May-Not-Know-Vuejs
 date: 2018-04-11 15:40:12
 ---
 
-> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-dont-know-vuejs-10.html](https://yugasun.com/post/you-dont-know-vuejs-10.html)
+> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-may-not-know-vuejs-10.html](https://yugasun.com/post/you-may-not-know-vuejs-10.html)
 本文可全文转载，但需要保留原作者和出处。
 
 ## 初识插件
@@ -166,7 +166,7 @@ Vue.use(VueAxiosPlugin)
 
 ## 发布组件
 
-插件已经写好了，你可以复制该文件在不同的项目中复用了。如果觉得每次都复制文件比较麻烦，你可以通过阅读上一篇 [定制开发项目模板](https://yugasun.com/post/you-dont-know-vuejs-10.html) 文章，将该插件文件直接添加到项目模板中即可。当然如果你的插件足够好，也可以发布到 npm 社区，供全世界的程序员同胞使用。
+插件已经写好了，你可以复制该文件在不同的项目中复用了。如果觉得每次都复制文件比较麻烦，你可以通过阅读上一篇 [定制开发项目模板](https://yugasun.com/post/you-may-not-know-vuejs-10.html) 文章，将该插件文件直接添加到项目模板中即可。当然如果你的插件足够好，也可以发布到 npm 社区，供全世界的程序员同胞使用。
 
 每次项目紧急，有个需求很难搞定时，我们就会想着从 github  上搜索我们需要的项目，既然我们从社区获取了那么多，当然也要学会感恩，偶尔尝试着去回报下，不求代码有多么高的质量，哪怕是单纯地帮助修改一个说明文档中的错误，那也是一份贡献，也许你的这次修改可以帮助别人节省半天的时间，任何项目都是在不断迭代中成长的。
 
@@ -176,4 +176,4 @@ Vue.use(VueAxiosPlugin)
 
 ## 专题目录
 
-[You-Dont-Know-Vuejs](https://github.com/yugasun/You-Dont-Know-Vuejs#%E6%96%87%E7%AB%A0%E7%9B%B4%E9%80%9A%E8%BD%A6)
+[You-May-Not-Know-Vuejs](https://github.com/yugasun/You-May-Not-Know-Vuejs#%E6%96%87%E7%AB%A0%E7%9B%B4%E9%80%9A%E8%BD%A6)

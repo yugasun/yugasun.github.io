@@ -1,14 +1,14 @@
 ---
-title: 你不知道的Vuejs - Vuejs 状态管理
+title: 你也许不知道的Vuejs - Vuejs 状态管理
 desc: 关于Vuejs项目实战经验分享，一步一步带你学会用Vuejs框架开发项目。
 reward: true
 tags:
   - Vuejs
-  - You-Dont-Know-Vuejs
+  - You-May-Not-Know-Vuejs
 date: 2018-05-21 15:46:22
 ---
 
-> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-dont-know-vuejs-12.html](https://yugasun.com/post/you-dont-know-vuejs-12.html)
+> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-may-not-know-vuejs-12.html](https://yugasun.com/post/you-may-not-know-vuejs-12.html)
 本文可全文转载，但需要保留原作者和出处。
 
 ## 前言
@@ -118,7 +118,7 @@ export default {
 
 ok，这样就完成了，运行项目，你会发现，改变 `comp1` 中的输入框的值，`comp2` 也同步发生改变，反过来也是一样的。至于原理，上面已经说过了，这里就不再赘述，赶紧动手实现下吧。
 
-[最终实现代码](https://github.com/yugasun/You-Dont-Know-Vuejs/blob/master/chapter3/vue-state/1)
+[最终实现代码](https://github.com/yugasun/You-May-Not-Know-Vuejs/blob/master/chapter3/vue-state/1)
 
 ## mixins - 混入
 
@@ -170,7 +170,7 @@ export default {
 
 其实，通过 `mixins` 方式跟 `方法1` 基本差不多，只不过相对于 `方法1` 的好处就是，在使用组件内，将状态数据属性跟 `data` 进行了代码上隔离（实际上还是混入到了 `data` 属性中）。
 
-[最终实现代码](https://github.com/yugasun/You-Dont-Know-Vuejs/blob/master/chapter3/vue-state/2)
+[最终实现代码](https://github.com/yugasun/You-May-Not-Know-Vuejs/blob/master/chapter3/vue-state/2)
 
 ## 全局的事件总线（Event Bus）
 
@@ -282,7 +282,7 @@ export default EventBus;
 
 当然我们这里只是为了demo，实际开发过程中，自己一定要清楚，这里其实有两个数据管道，一个是 `发布/订阅` 可以理解为单工（单向数据流）模式，一个是 `对象共享` 也就是 `方法2`，可以理解为双工（双向数据流）模式。首先你需要理解清楚 `当前需要共享的数据是单向还是双向`，然后根据场景灵活运用。
 
-[最终实现代码](https://github.com/yugasun/You-Dont-Know-Vuejs/blob/master/chapter3/vue-state/3)
+[最终实现代码](https://github.com/yugasun/You-May-Not-Know-Vuejs/blob/master/chapter3/vue-state/3)
 
 ## Vuex
 
@@ -296,4 +296,4 @@ export default EventBus;
 
 ## 专题目录
 
-[You-Dont-Know-Vuejs](https://github.com/yugasun/You-Dont-Know-Vuejs#%E6%96%87%E7%AB%A0%E7%9B%B4%E9%80%9A%E8%BD%A6)
+[You-May-Not-Know-Vuejs](https://github.com/yugasun/You-May-Not-Know-Vuejs#%E6%96%87%E7%AB%A0%E7%9B%B4%E9%80%9A%E8%BD%A6)

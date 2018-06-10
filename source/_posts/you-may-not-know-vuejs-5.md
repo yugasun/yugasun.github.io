@@ -1,14 +1,14 @@
 ---
-title: 你不知道的Vuejs - 工欲善其事必先利其器
+title: 你也许不知道的Vuejs - 工欲善其事必先利其器
 desc: 关于Vuejs项目实战经验分享，一步一步带你学会用Vuejs框架开发项目。
 reward: true
 date: 2018-02-06 21:00:00
 tags:
   - Vuejs
-  - You-Dont-Know-Vuejs
+  - You-May-Not-Know-Vuejs
 ---
 
-> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-dont-know-vuejs-5.html](https://yugasun.com/post/you-dont-know-vuejs-5.html)
+> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-may-not-know-vuejs-5.html](https://yugasun.com/post/you-may-not-know-vuejs-5.html)
 本文可全文转载，但需要保留原作者和出处。
 
 
@@ -376,7 +376,7 @@ new Vue({
 });
 ```
 
-> 这里我们用 `render` 函数来自定义渲染我们的节点，它含有默认参数 `h` 就是我们 [花式渲染目标元素](https://yugasun.com/post/you-dont-know-vuejs-1.html) 讲到的 `createElement` 参数的别名而已，这里为了书写简单。`h` 函数的第一个参数为 `dom` 名称，第二个参数为创建时配置对象，通过 `domProps` 来添加 DOM 相关的属性值。这里将我们引入的 `logoSrc` 赋值给它的 `src` 属性。
+> 这里我们用 `render` 函数来自定义渲染我们的节点，它含有默认参数 `h` 就是我们 [花式渲染目标元素](https://yugasun.com/post/you-may-not-know-vuejs-1.html) 讲到的 `createElement` 参数的别名而已，这里为了书写简单。`h` 函数的第一个参数为 `dom` 名称，第二个参数为创建时配置对象，通过 `domProps` 来添加 DOM 相关的属性值。这里将我们引入的 `logoSrc` 赋值给它的 `src` 属性。
 
 然后再重新运行 `npm run dev`，页面中就出现了我们想要的 `logo` 图片了。
 
@@ -384,8 +384,8 @@ new Vue({
 
 `知己知彼，百战不殆`，我们只有真正了解了 `webpack` 的使用技巧，在实际开发中，我们才会更加的得心应手。不至于被一个莫名其妙的错误个吓到。程序员有三宝：`多学习，多编写，多总结`，我们的编程技巧才能才会不断提高。
 
-[源码在此](https://github.com/yugasun/You-Dont-Know-Vuejs/blob/master/chapter2/1)
+[源码在此](https://github.com/yugasun/You-May-Not-Know-Vuejs/blob/master/chapter2/1)
 
 ## 专题目录
 
-[You-Dont-Know-Vuejs](https://github.com/yugasun/You-Dont-Know-Vuejs#%E6%96%87%E7%AB%A0%E7%9B%B4%E9%80%9A%E8%BD%A6)
+[You-May-Not-Know-Vuejs](https://github.com/yugasun/You-May-Not-Know-Vuejs#%E6%96%87%E7%AB%A0%E7%9B%B4%E9%80%9A%E8%BD%A6)

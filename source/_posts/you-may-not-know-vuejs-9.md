@@ -1,14 +1,14 @@
 ---
-title: 你不知道的Vuejs - 定制开发项目模板
+title: 你也许不知道的Vuejs - 定制开发项目模板
 desc: 关于Vuejs项目实战经验分享，一步一步带你学会用Vuejs框架开发项目。
 reward: true
 tags:
   - Vuejs
-  - You-Dont-Know-Vuejs
+  - You-May-Not-Know-Vuejs
 date: 2018-03-22 10:21:01
 ---
 
-> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-dont-know-vuejs-9.html](https://yugasun.com/post/you-dont-know-vuejs-9.html)
+> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-may-not-know-vuejs-9.html](https://yugasun.com/post/you-may-not-know-vuejs-9.html)
 本文可全文转载，但需要保留原作者和出处。
 
 有了前面几篇文章的铺垫，我相信我们回过头来再看看用 `vue-cli` 脚手架工具初始化的项目，就很好理解了。本篇将带着大家全面认识下用 `vue-cli` 脚手架工具初始化的项目，并会讲解如何定制化自己的项目模板。
@@ -238,4 +238,4 @@ vue init yugasun/webpack my-project
 
 ## 专题目录
 
-[You-Dont-Know-Vuejs](https://github.com/yugasun/You-Dont-Know-Vuejs#%E6%96%87%E7%AB%A0%E7%9B%B4%E9%80%9A%E8%BD%A6)
+[You-May-Not-Know-Vuejs](https://github.com/yugasun/You-May-Not-Know-Vuejs#%E6%96%87%E7%AB%A0%E7%9B%B4%E9%80%9A%E8%BD%A6)

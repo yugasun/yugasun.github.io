@@ -1,14 +1,14 @@
 ---
-title: 你不知道的Vuejs - 强大的指令系统
+title: 你也许不知道的Vuejs - 强大的指令系统
 desc: 关于Vuejs项目实战经验分享，一步一步带你学会用Vuejs框架开发项目。
 reward: true
 date: 2018-02-05 21:09:08
 tags:
   - Vuejs
-  - You-Dont-Know-Vuejs
+  - You-May-Not-Know-Vuejs
 ---
 
-> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-dont-know-vuejs-3.html](https://yugasun.com/post/you-dont-know-vuejs-3.html)
+> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-may-not-know-vuejs-3.html](https://yugasun.com/post/you-may-not-know-vuejs-3.html)
 本文可全文转载，但需要保留原作者和出处。
 
 > 在 `Vuejs` 中，指令（Directives）是带有 `v-` 前缀的特殊属性。指令属性的预期值是 **单个 Javascript 表达式**（`v-for` 是个例外）。指令的职责是，当表达式改变时，将其产生的连带影响，响应式的作用于 DOM。
@@ -121,7 +121,7 @@ var app3 = new Vue({
 })
 ```
 
-这里通过 `v-on` 监听了两个按钮的点击事件，并分别传递了各自的文字到监听函数进行输出，输出的 `msg` 是计算属性（如果不懂什么是计算属性，教程在这里 [深入浅出响应式系统](https://yugasun.com/post/you-dont-know-vuejs-2.html)），依赖 `btnText` 动态计算的。可以通过控制台查看打印出的参数 `e` 对象就是一个原生 `MouseEvent` 对象。
+这里通过 `v-on` 监听了两个按钮的点击事件，并分别传递了各自的文字到监听函数进行输出，输出的 `msg` 是计算属性（如果不懂什么是计算属性，教程在这里 [深入浅出响应式系统](https://yugasun.com/post/you-may-not-know-vuejs-2.html)），依赖 `btnText` 动态计算的。可以通过控制台查看打印出的参数 `e` 对象就是一个原生 `MouseEvent` 对象。
 
 除了基本的用法， `v-on` 指令还提供了丰富的 `修饰符` 来配合使用，这样可以写出非常灵活的监听事件，比如我们经常使用的 `e.preventDefault()`，在 Vue 中我们只需要通过  `v-on:click.prevent` 就可以实现了，是不是很炫酷，所有的修饰符列表在 [这里](https://cn.vuejs.org/v2/api/#v-on)。这里我们来演示下，点击鼠标左键和右键的事件监听，将上面的 html 代码修改如下：
 
@@ -233,8 +233,8 @@ var app4 = new Vue({
 > 上面代码中有个 `this.timer`， 那么这个 `this` 指的是什么呢？如果我们需要将这个 `timer` 和 `count` 变量 维护在当前 Vue 实例中，该如何做呢？
 
 
-[源码在此](https://github.com/yugasun/You-Dont-Know-Vuejs/blob/master/chapter1/3.html)
+[源码在此](https://github.com/yugasun/You-May-Not-Know-Vuejs/blob/master/chapter1/3.html)
 
 ## 专题目录
 
-[You-Dont-Know-Vuejs](https://github.com/yugasun/You-Dont-Know-Vuejs#%E6%96%87%E7%AB%A0%E7%9B%B4%E9%80%9A%E8%BD%A6)
+[You-May-Not-Know-Vuejs](https://github.com/yugasun/You-May-Not-Know-Vuejs#%E6%96%87%E7%AB%A0%E7%9B%B4%E9%80%9A%E8%BD%A6)

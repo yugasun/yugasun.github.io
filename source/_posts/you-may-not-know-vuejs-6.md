@@ -1,14 +1,14 @@
 ---
-title: 你不知道的Vuejs - 单文件组件
+title: 你也许不知道的Vuejs - 单文件组件
 desc: 关于Vuejs项目实战经验分享，一步一步带你学会用Vuejs框架开发项目。
 reward: true
 tags:
   - Vuejs
-  - You-Dont-Know-Vuejs
+  - You-May-Not-Know-Vuejs
 date: 2018-02-08 15:23:17
 ---
 
-> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-dont-know-vuejs-6.html](https://yugasun.com/post/you-dont-know-vuejs-6.html)
+> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-may-not-know-vuejs-6.html](https://yugasun.com/post/you-may-not-know-vuejs-6.html)
 本文可全文转载，但需要保留原作者和出处。
 
 ## 为什么需要单文件组件
@@ -25,7 +25,7 @@ Vuejs 提供的扩展名为 `.vue` 的 **单文件组件** 为以上所有问题
 
 ## 初识单文件组件
 
-还是利用 [工欲善其事必先利其器](https://yugasun.com/post/you-dont-know-vuejs-5.html) 中的源码，在 `src` 目录下创建 `hello.vue` 文件，内容如下：
+还是利用 [工欲善其事必先利其器](https://yugasun.com/post/you-may-not-know-vuejs-5.html) 中的源码，在 `src` 目录下创建 `hello.vue` 文件，内容如下：
 
 ```html
 <template>
@@ -318,7 +318,7 @@ h1 {
 ```html
 <docs>
   # 标题
-    这是标题内容，[仓库地址](https://github.com/yugasun/You-Dont-Know-Vuejs)
+    这是标题内容，[仓库地址](https://github.com/yugasun/You-May-Not-Know-Vuejs)
   ## 子标题
     这是子标题内容
 </docs>
@@ -420,8 +420,8 @@ module.exports = {
 
 关于 **单文件组件** 就到这里，实际上 `vue-loader` 在处理 `.vue` 文件时，还有很多强大的功能，我们这里只是带着大家感受一般项目中如何使用，同时解释了下相关使用原理说明，更多的功能，建议阅读 [vue-loader官方文档](https://vue-loader.vuejs.org/zh-cn/) 。
 
-[源码在此](https://github.com/yugasun/You-Dont-Know-Vuejs/blob/master/chapter2/2)
+[源码在此](https://github.com/yugasun/You-May-Not-Know-Vuejs/blob/master/chapter2/2)
 
 ## 专题目录
 
-[You-Dont-Know-Vuejs](https://github.com/yugasun/You-Dont-Know-Vuejs#%E6%96%87%E7%AB%A0%E7%9B%B4%E9%80%9A%E8%BD%A6)
+[You-May-Not-Know-Vuejs](https://github.com/yugasun/You-May-Not-Know-Vuejs#%E6%96%87%E7%AB%A0%E7%9B%B4%E9%80%9A%E8%BD%A6)

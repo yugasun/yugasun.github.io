@@ -1,14 +1,14 @@
 ---
-title: 你不知道的Vuejs - 使用ES6快乐的玩耍
+title: 你也许不知道的Vuejs - 使用ES6快乐的玩耍
 desc: 关于Vuejs项目实战经验分享，一步一步带你学会用Vuejs框架开发项目。
 reward: true
 tags:
   - Vuejs
-  - You-Dont-Know-Vuejs
+  - You-May-Not-Know-Vuejs
 date: 2018-02-11 10:04:17
 ---
 
-> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-dont-know-vuejs-7.html](https://yugasun.com/post/you-dont-know-vuejs-7.html)
+> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/you-may-not-know-vuejs-7.html](https://yugasun.com/post/you-may-not-know-vuejs-7.html)
 本文可全文转载，但需要保留原作者和出处。
 
 上一篇中我们已经学会使用 `babel` 将 ES6 转化为 ES5 了，并且展示了一些 ES6 代码，这一篇将重点聊聊 ES6 在 Vuejs 项目中一些部分应用。
@@ -226,8 +226,8 @@ h1 {
 
 其实要把讲ES6讲完，实在是太难了，写本书都很难讲好，我这里只能说是班门弄斧一下，结合我在 Vue 中的相关实践，对相关功能做个简短介绍，希望能起到引导的作用。不太了解的朋友，可以认真阅读下文首提到的阮一峰老师的文章。接下来后面的文章将全部使用 ES6 的语法编写代码。
 
-[源码在此](https://github.com/yugasun/You-Dont-Know-Vuejs/blob/master/chapter2/3)
+[源码在此](https://github.com/yugasun/You-May-Not-Know-Vuejs/blob/master/chapter2/3)
 
 ## 专题目录
 
-[You-Dont-Know-Vuejs](https://github.com/yugasun/You-Dont-Know-Vuejs#%E6%96%87%E7%AB%A0%E7%9B%B4%E9%80%9A%E8%BD%A6)
+[You-May-Not-Know-Vuejs](https://github.com/yugasun/You-May-Not-Know-Vuejs#%E6%96%87%E7%AB%A0%E7%9B%B4%E9%80%9A%E8%BD%A6)
