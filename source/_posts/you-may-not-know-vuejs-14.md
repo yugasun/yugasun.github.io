@@ -180,9 +180,105 @@ Component undefined mounted from 全局打点
 
 > 你会发现所有的 Vue 组件都注入了打点。
 
+## 原理解析
+
+其实 `mixins` 用起来非常简单，但是其背后的原理，还是值得我们去深究的:
+
+1. 为什么 `mixins` 后，钩子函数是依次执行的，而不是替换？
+2. 为什么 `mixins` 后，自身 `data` 属性优于混入属性？
+
+要想回答上面的问题，我们得从 vue 源码开始说起。
+
+Vue 在初始化 `mixin` 的时候，对于不同的属性，采用的策略是不同的，初始化代码在文件 [src/core/global-api.js](https://github.com/vuejs/vue/blob/dev/src/core/global-api/mixin.js) 中， 如下：
+
+```js
+import { mergeOptions } from '../util/index'
+
+export function initMixin (Vue: GlobalAPI) {
+  Vue.mixin = function (mixin: Object) {
+    Vue.options = mergeOptions(Vue.options, mixin)
+  }
+}
+```
+
+你会发现是通过 `mergeOptions` 函数来进行合并的，它在文件 [src/core/util/options.js](https://github.com/vuejs/vue/blob/dev/src/core/util/options.js#L388), 它的源码如下：
+
+```js
+/**
+ * Merge two option objects into a new one.
+ * Core utility used in both instantiation and inheritance.
+ */
+export function mergeOptions (
+  parent: Object,
+  child: Object,
+  vm?: Component
+): Object {
+  // 省略不必要代码
+  for (key in child) {
+    if (!hasOwn(parent, key)) {
+      mergeField(key)
+    }
+  }
+  function mergeField (key) {
+    const strat = strats[key] || defaultStrat
+    options[key] = strat(parent[key], child[key], vm, key)
+  }
+  return options
+}
+```
+
+这个函数很好理解，大概做的事情就是将 `child` 的属性合入到 `parent` 中，不同属性采用了不同的策略，这些策略都定义在 `strats` 对象上。
+
+我们先看看 `生命周期函数` 的合并策略，代码如下：
+
+```js
+/**
+ * Hooks and param attributes are merged as arrays.
+ */
+function mergeHook (
+  parentVal: ?Array<Function>,
+  childVal: ?Function | ?Array<Function>
+): ?Array<Function> {
+  return childVal
+    ? parentVal
+      ? parentVal.concat(childVal)
+      : Array.isArray(childVal)
+        ? childVal
+        : [childVal]
+    : parentVal
+}
+```
+
+可以发现 Vue 实例的生命周期函数最终都赋值成了一个数组，并对 `mixins` 中的进行了数组合并。这就是为什么组件 `mixins` 后的生命周期函数是依次执行的原因。
+
+同样再来看看 `data` 的合入策略：
+
+```js
+/**
+ * Helper that recursively merges two data objects together.
+ */
+function mergeData (to: Object, from: ?Object): Object {
+  let key, toVal, fromVal
+  for (key in from) {
+    toVal = to[key]
+    fromVal = from[key]
+    if (!hasOwn(to, key)) {
+      set(to, key, fromVal)
+    } else if (isObject(toVal) && isObject(fromVal)) {
+      mergeData(toVal, fromVal)
+    }
+  }
+  return to
+}
+```
+
+这个过程就是对象属性的合并，但是 `to` 上的优先级是高于 `from` 的，这就是为什么我们在对一个组件进行 `mixins` 的时候，自身 `data` 优先级高于混入的 `data` 属性，也就是如果 `mixins` 中和自身均含有相同属性时，混入属性值不会被添加到当前组件中。
+
+感兴趣的同学，还可以去研究下其他属性的混入策略，源码均在 [src/core/util/options.js](https://github.com/vuejs/vue/blob/dev/src/core/util/options.js#L388) 中，也很好理解。
+
 ## 总结
 
-其实 `mixins` 用起来非常简单，但是越是简单的东西，越是把双刃剑，实际使用中一定要注意，特别是全局性的混入，这会带来性能开销。大家可以多编写，多总结，找到最合适的使用习惯就好，建议多阅读著名开源项目的源码，你会从中学到更多前辈们的技巧。
+越是简单的东西，越是把双刃剑，实际使用中一定要注意，特别是全局性的混入，这会带来性能开销。大家可以多编写，多总结，找到最合适的使用习惯就好，建议多阅读著名开源项目的源码，你会从中学到更多前辈们的技巧。
 
 [源码在此](https://github.com/yugasun/You-May-Not-Know-Vuejs/blob/master/chapter4/2)
 
