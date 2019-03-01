@@ -1,5 +1,5 @@
 ---
-title: 你也许不知道的Vuejs - Vuejs 插件开发
+title: 你也许不知道的Vuejs - 插件开发
 desc: 关于Vuejs项目实战经验分享，一步一步带你学会用Vuejs框架开发项目。
 reward: true
 tags:
