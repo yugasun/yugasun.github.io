@@ -8,9 +8,10 @@
   "scripts": {
     "dev": "hexo serve",
     "new": "hexo new",
-    "gen": "hexo clean && hexo generate",
+    "gen": "hexo generate",
     "test": "mocha --reporter spec --timeout 5000 --recursive test/spec/",
-    "theme-clone": "git clone https://github.com/yugasun/hexo-theme-yilia ./themes/yilia"
+    "theme:init": "git submodule init",
+    "theme:update": "git submodule update"
   },
   "devDependencies": {
     "chai": "^4.1.2",

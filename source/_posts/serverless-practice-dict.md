@@ -7,6 +7,9 @@ tags:
   - Serverless
 ---
 
+> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/serverless-practice-dict.html](https://yugasun.com/post/serverless-practice-dict.html)
+本文可全文转载，但需要保留原作者和出处。
+
 ### 背景
 
 作为一名程序员，日常工作和学习中，我们会接触到各种英文文档和代码，因此英文基础是不可或缺的。但是我们脑海中的英文词汇是有限的，总会碰到一些不认识的单词，因此一个好的翻译软件就显得尤为重要。由于每次点开翻译软件，然后再输入陌生单词，获得答案的操作，总觉得太繁琐，而且大多数时候我们只需要一个简单的翻译就行，并不需要翻译软件列出的一大堆翻译解释。因此，开发一款简单的翻译工具的念头应运而生。
