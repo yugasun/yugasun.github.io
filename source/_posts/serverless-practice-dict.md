@@ -10,11 +10,11 @@ tags:
 > by [yugasun](https://yugasun.com) from [https://yugasun.com/post/serverless-practice-dict.html](https://yugasun.com/post/serverless-practice-dict.html)
 本文可全文转载，但需要保留原作者和出处。
 
+##【Serverless 实践篇】如何基于腾讯云快速开发免费的翻译工具
+
 ### 背景
 
 作为一名程序员，日常工作和学习中，我们会接触到各种英文文档和代码，因此英文基础是不可或缺的。但是我们脑海中的英文词汇是有限的，总会碰到一些不认识的单词，因此一个好的翻译软件就显得尤为重要。由于每次点开翻译软件，然后再输入陌生单词，获得答案的操作，总觉得太繁琐，而且大多数时候我们只需要一个简单的翻译就行，并不需要翻译软件列出的一大堆翻译解释。因此，开发一款简单的翻译工具的念头应运而生。
-
-<!--more-->
 
 ### 思考
 
@@ -37,7 +37,7 @@ tags:
 
 接下来就是翻译接口了，在腾讯云平台搜了下，正好有腾讯云机器翻译的文本翻译接口正好可以满足需求，重点是它 `每月有5百万字符` 的免费额度，简直是我等屌丝的福音......
 
-还有一个很重要的步骤就是 `创建API密钥`，因为之后无论是 `请求云API请求` 还是 `scf 命令行工具部署` 都需要 `API密钥`，只需要到腾讯云控制台 [创建API密钥](https://console.cloud.tencent.com/cam/capi) 就行。
+还有一个很重要的步骤就是 `创建API密钥`，因为之后无论是 `请求云API请求` 还是 `scf 命令行工具部署` 都需要 `API密钥`，只需要到腾讯云控制台 [创建 API 密钥](https://console.cloud.tencent.com/cam/capi) 就行。
 
 ### 鉴权开发
 
@@ -45,9 +45,45 @@ tags:
 
 > TC3-HMAC-SHA256 签名方法相比以前的 HmacSHA1 和 HmacSHA256 签名方法，功能上覆盖了以前的签名方法，而且更安全，支持更大的请求，支持 json 格式，性能有一定提升，建议使用该签名方法计算签名。
 
-考虑到以后的扩展性（作为一名喜欢装x的程序员），毅然选择了第二种鉴权算法。可是官方文档并未给出 `Javascript` 的实现版本，于是自己花时间用 `Typescript` 手写了这个签名算法，整体还是没有什么难度的，只需要按照 [官方文档](https://cloud.tencent.com/document/api/551/30636)，一步一步实现就好，这里奉上 [源代码](https://github.com/yugasun/tencent-serverless-sdk/blob/master/packages/capi/src/utils.ts#L81)。
+考虑到以后的扩展性（作为一名喜欢装 x 的程序员），毅然选择了第二种鉴权算法。可是官方文档并未给出 `Javascript` 的实现版本，于是自己花时间用 `Typescript` 手写了这个签名算法，整体还是没有什么难度的，只需要按照 [官方文档](https://cloud.tencent.com/document/api/551/30636)，一步一步实现就好。
 
-> 注意：因为 GET 和 POST 方式的参数是有区别的，目前只支持 POST 方式。
+核心代码如下：
+
+```js
+// 1. create Canonical request string
+const HTTPRequestMethod = (options.method || "POST").toUpperCase();
+const CanonicalURI = "/";
+const CanonicalQueryString = "";
+const CanonicalHeaders = `content-type:application/json\nhost:${Host}\n`;
+const SignedHeaders = "content-type;host";
+const HashedRequestPayload = crypto
+  .createHash("sha256")
+  .update(JSON.stringify(payload))
+  .digest("hex");
+const CanonicalRequest = `${HTTPRequestMethod}\n${CanonicalURI}\n${CanonicalQueryString}\n${CanonicalHeaders}\n${SignedHeaders}\n${HashedRequestPayload}`;
+
+// 2. create string to sign
+const CredentialScope = `${date}/${options.ServiceType}/tc3_request`;
+const HashedCanonicalRequest = crypto
+  .createHash("sha256")
+  .update(CanonicalRequest)
+  .digest("hex");
+const StringToSign = `${Algorithm}\n${Timestamp}\n${CredentialScope}\n${HashedCanonicalRequest}`;
+
+// 3. calculate signature
+const SecretDate = sign(date, Buffer.from(`TC3${options.SecretKey}`, "utf8"));
+const SecretService = sign(options.ServiceType, SecretDate);
+const SecretSigning = sign("tc3_request", SecretService);
+const Signature = crypto
+  .createHmac("sha256", SecretSigning)
+  .update(Buffer.from(StringToSign, "utf8"))
+  .digest("hex");
+
+// 4. create authorization
+const Authorization = `${Algorithm} Credential=${options.SecretId}/${CredentialScope}, SignedHeaders=${SignedHeaders}, Signature=${Signature}`;
+```
+
+这里奉上 [源代码](https://github.com/yugasun/tencent-serverless-sdk/blob/master/packages/capi/src/utils.ts#L81)。
 
 搞定了最复杂的签名算法，接下来就是 `云函数` 的开发了。
 
@@ -55,23 +91,23 @@ tags:
 
 创建一个 `云函数`，参考官方文档 [使用控制台创建函数](https://cloud.tencent.com/document/product/583/37509)，模板选择 `Nodejs8.9` 运行环境，创建成功后，在线编辑函数代码就行。当然你也可以本地创建，参考这个代码模板 https://github.com/yugasun/tencent-serverless-demo/tree/master/dict, 然后根据个人需求修改 `template.yaml` 文件就行。
 
-如果你是本地开发的函数，需要部署到线上，就需要用到 [SCF命令行工具](https://cloud.tencent.com/document/product/583/37510) 了，更具文档安装下就行。(当然云函数的部署，还有其他很多种，待大家自己去探索了)
+如果你是本地开发的函数，需要部署到线上，就需要用到 [SCF 命令行工具](https://cloud.tencent.com/document/product/583/37510) 了，更具文档安装下就行。(当然云函数的部署，还有其他很多种，待大家自己去探索了)
 
 ### 业务开发
 
-接下来就是编写业务逻辑了，本来代码中应该包含了鉴权和标准云API请求的代码，但是考虑到以后可能还会再次使用，于是将腾讯云相关的 API 请求代码封装成了 [tss-capi](https://www.npmjs.com/package/tss-capi) 模块。然后重构后的函数代码就变得简洁很多：
+接下来就是编写业务逻辑了，本来代码中应该包含了鉴权和标准云 API 请求的代码，但是考虑到以后可能还会再次使用，于是将腾讯云相关的 API 请求代码封装成了 [tss-capi](https://www.npmjs.com/package/tss-capi) 模块。然后重构后的函数代码就变得简洁很多：
 
 ```js
-const Dotenv = require('dotenv');
-const { Capi } = require('tss-capi');
-const path = require('path');
+const Dotenv = require("dotenv");
+const { Capi } = require("tss-capi");
+const path = require("path");
 
 function scfReturn(err, data) {
   return {
     isBase64Encoded: false,
     statusCode: 200,
-    headers: { 'Content-Type': 'application/json' },
-    body: { error: err, data: data },
+    headers: { "Content-Type": "application/json" },
+    body: { error: err, data: data }
   };
 }
 
@@ -79,34 +115,34 @@ exports.main_handler = async (event, context, callback) => {
   const query = event.queryString || {};
   const sourceText = query.q;
   if (!sourceText) {
-    return scfReturn(new Error('Please set word you want to translate.'), null);
+    return scfReturn(new Error("Please set word you want to translate."), null);
   }
   try {
-    const envPath = path.join(__dirname, '.env');
+    const envPath = path.join(__dirname, ".env");
     const { parsed } = Dotenv.config({
-      path: envPath,
+      path: envPath
     });
 
     const client = new Capi({
-      Region: 'ap-guangzhou',
+      Region: "ap-guangzhou",
       SecretId: parsed.TENCENT_SECRET_ID,
       SecretKey: parsed.TENCENT_SECRET_KEY,
-      ServiceType: 'tmt',
-      host: 'tmt.tencentcloudapi.com',
+      ServiceType: "tmt",
+      host: "tmt.tencentcloudapi.com"
     });
 
     const res = await client.request(
       {
-        Action: 'TextTranslate',
-        Version: '2018-03-21',
+        Action: "TextTranslate",
+        Version: "2018-03-21",
         SourceText: sourceText,
-        Source: 'auto',
-        Target: 'zh',
-        ProjectId: 0,
+        Source: "auto",
+        Target: "zh",
+        ProjectId: 0
       },
       {
-        host: 'tmt.tencentcloudapi.com',
-      },
+        host: "tmt.tencentcloudapi.com"
+      }
     );
 
     const translateText = res.Response && res.Response.TargetText;
@@ -129,7 +165,7 @@ exports.main_handler = async (event, context, callback) => {
 
 ### 函数部署
 
-借助 [SCF命令行工具](https://cloud.tencent.com/document/product/583/37510)，云函数的部署变得相当简单。你只需要在项目根目录下执行 `scf deploy` 命令，接下来所有的一切事情，命令行就会自动帮你搞定。当然如果需要自动创建 `API 网关触发器`，还需要在 `template.yaml` 文件中进行配置，如下：
+借助 [SCF 命令行工具](https://cloud.tencent.com/document/product/583/37510)，云函数的部署变得相当简单。你只需要在项目根目录下执行 `scf deploy` 命令，接下来所有的一切事情，命令行就会自动帮你搞定。当然如果需要自动创建 `API 网关触发器`，还需要在 `template.yaml` 文件中进行配置，如下：
 
 ```yaml
 Resources:
@@ -148,8 +184,8 @@ Resources:
         Runtime: Nodejs8.9
         Timeout: 3
         VpcConfig:
-          SubnetId: ''
-          VpcId: ''
+          SubnetId: ""
+          VpcId: ""
         Events:
           dict:
             Type: APIGW
@@ -159,7 +195,7 @@ Resources:
               HttpMethod: ANY
 ```
 
-> 注意： 配置中的 `service-7kqwzu92` 是我在 [API网关](https://console.cloud.tencent.com/apigateway/service?rid=1) 创建的服务，需要修改成私人配置。
+> 注意： 配置中的 `service-7kqwzu92` 是我在 [API 网关](https://console.cloud.tencent.com/apigateway/service?rid=1) 创建的服务，需要修改成私人配置。`QCS_SCFExcuteRole` 是配置的函数运行角色，如果用不到可以直接删除 `Role: QCS_SCFExcuteRole` 这一行配置。
 
 第一次部署成功后，如果再次运行 `scf deploy` 会提示 `default dict: The function already exists.` 函数已经存在的错误，这里就需要进行强制覆盖，将部署命令修改为 `scf deploy -f` 就好。
 
@@ -175,8 +211,8 @@ Resources:
     "Content-Type": "application/json"
   },
   "body": {
-  	"error": null,
-		"data": "你好"
+    "error": null,
+    "data": "你好"
   }
 }
 ```
