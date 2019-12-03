@@ -90,7 +90,7 @@ module.exports = app;
 
 ### 前端页面开发
 
-本案例使用的是 `Vue.js` + `Parcel` 的前端模板，当然你可以使用任何前端项目脚手架，比如 Vue.js 官方推荐的 [Vue CLI](https://github.com/vuejs/vue-cli) 生成的项目。进入 `dashboard` 目录，静态资源你可以直接复制我准备好的 [项目模板]([https://github.com/yugasun/tencent-serverless-demo/tree/master/fullstack-application-vue](https://github.com/yugasun/tencent-serverless-demo/tree/master/fullstack-application-vue))，编写入口文件 `src/index.js`:
+本案例使用的是 `Vue.js` + `Parcel` 的前端模板，当然你可以使用任何前端项目脚手架，比如 Vue.js 官方推荐的 [Vue CLI](https://github.com/vuejs/vue-cli) 生成的项目。进入 `dashboard` 目录，静态资源你可以直接复制我准备好的 [项目模板](https://github.com/yugasun/tencent-serverless-demo/tree/master/fullstack-application-vue)，编写入口文件 `src/index.js`:
 
 ```js
 // 这里初始是没有 env.js 模块的，第一次部署后会自动生成
@@ -167,7 +167,7 @@ $ serverless --debug
 
 这样一个基于无服务组件的全栈应用就开发好了。赶紧点击你部署好的链接体验一下吧~
 
-[在线 Demo]([https://br1ovx-efmogqe-1251556596.cos-website.ap-guangzhou.myqcloud.com/](https://br1ovx-efmogqe-1251556596.cos-website.ap-guangzhou.myqcloud.com/))
+[在线 Demo](https://br1ovx-efmogqe-1251556596.cos-website.ap-guangzhou.myqcloud.com/)
 
 ## 数据库连接
 
@@ -175,7 +175,7 @@ $ serverless --debug
 
 ### 准备
 
-想要操作数据库，必须先拥有一台数据库实例，[腾讯云Mysql云数据库]([https://console.cloud.tencent.com/cdb](https://console.cloud.tencent.com/cdb)) 现在也很便宜，可以购买一个最基本按量计费 `1核1G内存` 的 1小时收费不到 `4 毛钱`，是不是非常划算。购买好之后初始化配置，然后新增一个 `serverless` 数据库，同时新增一张 `users` 表：
+想要操作数据库，必须先拥有一台数据库实例，[腾讯云Mysql云数据库](https://console.cloud.tencent.com/cdb) 现在也很便宜，可以购买一个最基本按量计费 `1核1G内存` 的 1小时收费不到 `4 毛钱`，是不是非常划算。购买好之后初始化配置，然后新增一个 `serverless` 数据库，同时新增一张 `users` 表：
 
 ```sql
 CREATE TABLE if not exists `test` ( `name` varchar (32) NOT NULL ,`email` varchar (64) NOT NULL ,`site` varchar (128) NOT NULL ) ENGINE = innodb DEFAULT CHARACTER SET = "utf8mb4" COLLATE = "utf8mb4_general_ci"
@@ -266,7 +266,7 @@ module.exports = new Vue({
 </section>
 ```
 
-> 注意：如果还不熟悉 Vue.js 语法，请移至 [官方文档]([https://cn.vuejs.org/](https://cn.vuejs.org/))，当然如果你想快速上手 Vue.js 开发，也可以阅读这份 [Vue 从入门到精通](https://yugasun.github.io/You-May-Not-Know-Vuejs/) 教程。
+> 注意：如果还不熟悉 Vue.js 语法，请移至 [官方文档](https://cn.vuejs.org/)，当然如果你想快速上手 Vue.js 开发，也可以阅读这份 [Vue 从入门到精通](https://yugasun.github.io/You-May-Not-Know-Vuejs/) 教程。
 
 ### 后端修改
 
