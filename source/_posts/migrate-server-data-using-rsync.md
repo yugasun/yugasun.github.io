@@ -20,19 +20,19 @@ tags:
 
 rsync总共有6中工作模式，分别如下：
 
-1. 拷贝本地文件，将/home/coremail目录下的文件拷贝到/cmbak目录下。
+1.拷贝本地文件，将/home/coremail目录下的文件拷贝到/cmbak目录下。
 
 ```bash
 rsync -avSH /home/coremail/ /cmbak/
 ```
 
-2. 拷贝本地机器的内容到远程机器。
+2.拷贝本地机器的内容到远程机器。
 
 ```bash
 rsync -av /home/coremail/ 192.168.11.12:/home/coremail/
 ```
 
-3. 拷贝远程服务器(ssh 方式运行rsync)的内容到本地机器。
+3.拷贝远程服务器(ssh 方式运行rsync)的内容到本地机器。
 
 ```bash
 rsync -av 192.168.11.11:/home/coremail/ /home/coremail/
@@ -127,7 +127,7 @@ rsync -avz --progress --delete aliyun@104.128.82.150::www /opt/www
 然后输入密码，然后会开始同步传输，控制台会输出下面内容：
 
 ```bash
-Password: 
+Password:
 receiving incremental file list
 ./
 https_bak.conf
