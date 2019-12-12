@@ -1,6 +1,6 @@
 ---
-title: Serverless 实战篇 - 如何开发自己的第一个无服务组件
-desc: Serverless 实践系列文章，如何开发自己的第一个无服务组件
+title: Serverless 实战篇 - 如何开发自己的第一个 Serverless Component
+desc: Serverless 实践系列文章，如何开发自己的第一个 Serverless Component
 reward: true
 date: 2019-12-12 12:19:51
 tags:
@@ -13,17 +13,17 @@ tags:
 
 ## 前言
 
-上一篇 [基于无服务组件的全栈解决方案](https://yugasun.com/post/serverless-fullstack-vue-practice.html) 介绍无服务组件是什么和如何使用无服务组件开发一个全栈应用。但是目前社区还不够完善，当我们需要一个还没有的组件时，怎么办呢？
+上一篇 [基于 Serverless Component 的全栈解决方案](https://yugasun.com/post/serverless-fullstack-vue-practice.html) 介绍 Serverless Component 是什么和如何使用 Serverless Component 开发一个全栈应用。但是目前社区还不够完善，当我们需要一个还没有的组件时，怎么办呢？
 
 与其向官方提交 `issue`，说明需求，不如自己动手撸一个，岂不快哉~
 
 <!--more-->
 
-## 无服务组件运行机制
+##  Serverless Component 运行机制
 
-在开始开发之前，我们先来了解下无服务组件的运行机制：
+在开始开发之前，我们先来了解下 Serverless Component 的运行机制：
 
-每个无服务组件实际上就是一个 `npm` 包，你可以通过 `npm install` 命令直接安装。当我们在一个依赖无服务组件的应用中，执行命令 `serverless --debug` 部署时，它首先会读取 `serverless.yml` 文件中的 `component` 参数指定组件模块，它会像安装 `npm` 包一样，自动安装到本地，然后自动注入该组件模块，同时执行组件中的 `default` 函数（之后会讲到），从而完成部署流程。
+每个 Serverless Component 实际上就是一个 `npm` 包，你可以通过 `npm install` 命令直接安装。当我们在一个依赖 Serverless Component 的应用中，执行命令 `serverless --debug` 部署时，它首先会读取 `serverless.yml` 文件中的 `component` 参数指定组件模块，它会像安装 `npm` 包一样，自动安装到本地，然后自动注入该组件模块，同时执行组件中的 `default` 函数（之后会讲到），从而完成部署流程。
 
 ## 开发步骤
 
@@ -103,7 +103,7 @@ MyCDN:
 
 ## 3. 组件开发
 
-对于一个标准的无服务组件 ，结构如下：
+对于一个标准的 Serverless Component  ，结构如下：
 
 ```js
 // serverless.js
@@ -228,7 +228,7 @@ await AddCdnHost(capi, cdnInputs)
 
 #### 3.3 组件状态保存
 
-无服务组件在执行  `default` 函数时，它会产生一些状态，比如新增 CDN 域名成功后，会产生一个 `hostId`，我们可以保存在 `this.state` 对象中，通过执行 `this.save()` 函数，它会将 `this.state` 保存到项目根目录的 `.serverless` 文件夹中一个名为 `Template.MyCDN.json` （`MyCDN` 是我定义的当前 Serverless 应用的名称）文件中，方便之后在做组件建删除时使用。
+ Serverless Component 在执行  `default` 函数时，它会产生一些状态，比如新增 CDN 域名成功后，会产生一个 `hostId`，我们可以保存在 `this.state` 对象中，通过执行 `this.save()` 函数，它会将 `this.state` 保存到项目根目录的 `.serverless` 文件夹中一个名为 `Template.MyCDN.json` （`MyCDN` 是我定义的当前 Serverless 应用的名称）文件中，方便之后在做组件建删除时使用。
 
 #### 3.4 编写 remove 函数
 
@@ -252,7 +252,7 @@ MyCDN:
 
 这里的 `../` 就是相对路径，因为 `tencent-cdn` 组件的 `serverless.js` 文件在 `tencent-cdn` 根目录下，之后我们就可以进入 `test` 目录，执行部署和移除操作，来测试我们的组件了。
 
-> 注意：虽然一个无服务组件是一个 npm 模块，我们可以通过 `package.json` 中的 `main` 属性指定项目中任意的文件入口，但是如果没有 `serverless.js` 文件，`serverless` 命令是没法通过 `component` 指定的本地路径调试的。
+> 注意：虽然一个 Serverless Component 是一个 npm 模块，我们可以通过 `package.json` 中的 `main` 属性指定项目中任意的文件入口，但是如果没有 `serverless.js` 文件，`serverless` 命令是没法通过 `component` 指定的本地路径调试的。
 
 ## 5. 发布 npm 包
 

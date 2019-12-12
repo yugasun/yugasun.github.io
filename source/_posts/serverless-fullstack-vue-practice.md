@@ -1,5 +1,5 @@
 ---
-title: Serverless 实践篇 - 基于无服务组件的全栈解决方案
+title: Serverless 实践篇 - 基于 Serverless Component 的全栈解决方案
 desc: Serverless 实践系列文章，基于腾讯云快速开发免费的翻译工具
 reward: true
 date: 2019-12-03 12:35:49
@@ -10,19 +10,19 @@ tags:
 > by [yugasun](https://yugasun.com) from [https://yugasun.com/post/serverless-fullstack-vue-practice.html](https://yugasun.com/post/serverless-fullstack-vue-practice.html)
 本文可全文转载，但需要保留原作者和出处。
 
-## 什么是无服务组件
+## 什么是 Serverless Component
 
-> 本文将 `Serverless Components` 统一翻译为 `无服务组件`
+> 本文将 `Serverless Components` 统一翻译为 ` Serverless Component `
 
-因为无服务组件是基于无服务框架 （[Serverless Framework](https://github.com/serverless/serverless)）的，所以在阅读这篇实践文章之前，建议先大概了解下 `serverless` 命令的使用，因为下面的案例会使用到。
+因为 Serverless Component 是基于无服务框架 （[Serverless Framework](https://github.com/serverless/serverless)）的，所以在阅读这篇实践文章之前，建议先大概了解下 `serverless` 命令的使用，因为下面的案例会使用到。
 
-无服务组件的目标是磨平不同云服务平台之间差异，你可以将它看作是可以更轻松地构建应用程序的依赖模块。目前无服务组件，已经形成一个由社区贡献驱动的生态系统，你可以浏览和使用社区的所有组件，快速开发一款自己想要的应用。
+ Serverless Component 的目标是磨平不同云服务平台之间差异，你可以将它看作是可以更轻松地构建应用程序的依赖模块。目前 Serverless Component ，已经形成一个由社区贡献驱动的生态系统，你可以浏览和使用社区的所有组件，快速开发一款自己想要的应用。
 
 <!--more-->
 
-## 无服务组件工作原理
+##  Serverless Component 工作原理
 
-基于无服务组件架构，你可以将任何云服务打包成一个组件。这个组件将含有一份 `serverless.yml` 配置文件，并且通过简单地进行配置就可以使用。我们拿 [@serverless/tencent-express](https://github.com/serverless-components/tencent-express) 来举🌰。
+基于 Serverless Component 架构，你可以将任何云服务打包成一个组件。这个组件将含有一份 `serverless.yml` 配置文件，并且通过简单地进行配置就可以使用。我们拿 [@serverless/tencent-express](https://github.com/serverless-components/tencent-express) 来举🌰。
 
 如果我们要使用它，只需要新建一个项目 `express-demo`，然后修改 `serverless.yml` 配置如下：
 
@@ -56,7 +56,7 @@ module.exports = app
 
 ## 全栈应用实战
 
-接下来将介绍如何借助无服务组件快速开发全栈Web应用。
+接下来将介绍如何借助 Serverless Component 快速开发全栈Web应用。
 
 > 在开始所有步骤前，需执行 `npm install -g serverless` 命令，全局安装 `serverless cli`。
 
@@ -145,7 +145,7 @@ api:
       protocol: https
 ```
 
-> 简单的介绍下配置：首先，该文件定义了 `frontend` 和 `api` 两个模块，分别通过 `component` 属性指定依赖的无服务组件。对于一个标准的无服务组件，都会接受一个 `inputs` 属性参数，然后组件会根据 `inputs` 的配置进行处理和部署，具体有关配置的参数说明，请参考相关组件的官方配置说明。
+> 简单的介绍下配置：首先，该文件定义了 `frontend` 和 `api` 两个模块，分别通过 `component` 属性指定依赖的 Serverless Component 。对于一个标准的 Serverless Component ，都会接受一个 `inputs` 属性参数，然后组件会根据 `inputs` 的配置进行处理和部署，具体有关配置的参数说明，请参考相关组件的官方配置说明。
 
 ### 部署
 
@@ -165,7 +165,7 @@ $ serverless --debug
 
 ![Deploy Success Result](https://static.yugasun.com/serverless/deploy-success.png)
 
-这样一个基于无服务组件的全栈应用就开发好了。赶紧点击你部署好的链接体验一下吧~
+这样一个基于 Serverless Component 的全栈应用就开发好了。赶紧点击你部署好的链接体验一下吧~
 
 [在线 Demo](https://br1ovx-efmogqe-1251556596.cos-website.ap-guangzhou.myqcloud.com/)
 
@@ -380,6 +380,6 @@ api:
 
 ## 总结
 
-当然全栈方案，并没有这么简单，这里只是简单介绍，如何使用无服务组件，快速实现一个全栈应用。如果要应用到实际的业务场景，我们还需考虑更多的问题。而且目前社区组件还不够完善，很多功能还需要我们自己去探索发现。也希望更多牛人加入到无服务组件社区，贡献更多的优秀组件。
+当然全栈方案，并没有这么简单，这里只是简单介绍，如何使用 Serverless Component ，快速实现一个全栈应用。如果要应用到实际的业务场景，我们还需考虑更多的问题。而且目前社区组件还不够完善，很多功能还需要我们自己去探索发现。也希望更多牛人加入到 Serverless Component 社区，贡献更多的优秀组件。
 
 
