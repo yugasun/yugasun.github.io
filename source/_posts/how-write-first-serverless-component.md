@@ -1,10 +1,11 @@
 ---
-title: Serverless 实战篇 - 如何开发自己的第一个 Serverless Component
+title: 如何开发自己的第一个 Serverless Component
 desc: Serverless 实践系列文章，如何开发自己的第一个 Serverless Component
 reward: true
 date: 2019-12-12 12:19:51
 tags:
   - Serverless
+  - Serverless-Practice
 ---
 
 

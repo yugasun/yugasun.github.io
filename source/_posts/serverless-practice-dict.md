@@ -1,16 +1,15 @@
 ---
-title: Serverless 实践篇 - 如何基于腾讯云快速开发免费的翻译工具
+title: 如何基于腾讯云快速开发免费的翻译工具
 desc: Serverless 实践系列文章，如何基于腾讯云快速开发免费的翻译工具
 reward: true
 date: 2019-11-26 12:43:17
 tags:
   - Serverless
+  - Serverless-Practice
 ---
 
 > by [yugasun](https://yugasun.com) from [https://yugasun.com/post/serverless-practice-dict.html](https://yugasun.com/post/serverless-practice-dict.html)
 本文可全文转载，但需要保留原作者和出处。
-
-##【Serverless 实践篇】如何基于腾讯云快速开发免费的翻译工具
 
 ### 背景
 

@@ -1,18 +1,17 @@
 ---
-title: Serverless 实践篇 - 基于 Serverless Component 的全栈解决方案
+title: 基于 Serverless Component 的全栈解决方案
 desc: Serverless 实践系列文章，基于腾讯云快速开发免费的翻译工具
 reward: true
 date: 2019-12-03 12:35:49
 tags:
   - Serverless
+  - Serverless-Practice
 ---
 
 > by [yugasun](https://yugasun.com) from [https://yugasun.com/post/serverless-fullstack-vue-practice.html](https://yugasun.com/post/serverless-fullstack-vue-practice.html)
 本文可全文转载，但需要保留原作者和出处。
 
 ## 什么是 Serverless Component
-
-> 本文将 `Serverless Components` 统一翻译为 ` Serverless Component `
 
 因为 Serverless Component 是基于无服务框架 （[Serverless Framework](https://github.com/serverless/serverless)）的，所以在阅读这篇实践文章之前，建议先大概了解下 `serverless` 命令的使用，因为下面的案例会使用到。
 
