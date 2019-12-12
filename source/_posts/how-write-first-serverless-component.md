@@ -7,6 +7,10 @@ tags:
   - Serverless
 ---
 
+
+> by [yugasun](https://yugasun.com) from [https://yugasun.com/post/serverless-fullstack-vue-practice.html](https://yugasun.com/post/how-write-first-serverless-component.html)
+本文可全文转载，但需要保留原作者和出处。
+
 ## 前言
 
 上一篇 [基于无服务组件的全栈解决方案](https://yugasun.com/post/serverless-fullstack-vue-practice.html) 介绍无服务组件是什么和如何使用无服务组件开发一个全栈应用。但是目前社区还不够完善，当我们需要一个还没有的组件时，怎么办呢？
