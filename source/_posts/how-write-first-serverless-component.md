@@ -265,7 +265,7 @@ MyCDN:
 
 最终实现源码：[@serverless/tencent-cdn](https://github.com/serverless-components/tencent-cdn)。
 
-## 组件引用（补充）
+## 组件引用
 
 每个组件实例，都会有个 `load` 方法，我们可以通过此方法来加载其他组件，如下：
 
@@ -276,6 +276,12 @@ const cdnComp = await this.load('@serverless/tencent-cdn', 'cdnComp');
 借助此功能，我们可以实现很多高阶组件，比如 [@serverless/tencent-website](https://github.com/serverless-components/tencent-website) 就是一个很好地案例。
 
 至于如何组合你的组件，实现自己的需求，就靠你自己去天马行空了，是不是已经跃跃欲试了？快来社区贡献你的一份力量吧~
+
+## 组件开发模板
+
+这里有个腾讯云 Serverless Component 开发模板，可以帮你快速开发一个 Serverless Component。
+
+[模板链接](https://github.com/yugasun/serverless-component-template)
 
 ## 参考
 
