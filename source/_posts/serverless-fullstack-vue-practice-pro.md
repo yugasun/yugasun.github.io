@@ -1,5 +1,5 @@
 ---
-title: 基于 Serverless Component 的全栈解决方案 - 后记
+title: 基于 Serverless Component 的全栈解决方案 - 续集
 desc: Serverless 实践系列文章，基于 Serverless Component 的全栈解决方案
 reward: true
 date: 2019-12-22 11:10:20
