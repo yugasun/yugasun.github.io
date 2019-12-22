@@ -1,6 +1,6 @@
 ---
 title: 基于 Serverless Component 的全栈解决方案
-desc: Serverless 实践系列文章，基于腾讯云快速开发免费的翻译工具
+desc: Serverless 实践系列文章，基于 Serverless Component 的全栈解决方案
 reward: true
 date: 2019-12-03 12:35:49
 tags:
