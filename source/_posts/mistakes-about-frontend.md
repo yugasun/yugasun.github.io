@@ -67,7 +67,7 @@ CSS 就跟 HTML 不一样了，她是一门真正的计算机语言，所以她�
 
 如果你是一个入门的前端开发，对这个职业略感迷茫，新技术层出不穷，不知道如何学习，希望下面这个前端开发路线图能够帮助到你。
 
-![Frontend Knowledge Map](https://user-gold-cdn.xitu.io/2018/12/9/1679127a1b56d354?w=720&h=889&f=jpeg&s=80550)
+![Frontend Knowledge Map](https://static.yugasun.com/frontend-dev.jpg)
  <center>
     <div style="color:orange; border-bottom: 1px solid #d9d9d9;
     display: inline-block;
