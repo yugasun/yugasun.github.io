@@ -9,25 +9,25 @@ tags:
 ---
 
 > by [yugasun](https://yugasun.com) from [https://yugasun.com/post/serverless-fullstack-vue-practice.html](https://yugasun.com/post/serverless-fullstack-vue-practice.html)
-本文可全文转载，但需要保留原作者和出处。
+> 本文可全文转载，但需要保留原作者和出处。
 
 ## 什么是 Serverless Component
 
 因为 Serverless Component 是基于无服务框架 （[Serverless Framework](https://github.com/serverless/serverless)）的，所以在阅读这篇实践文章之前，建议先大概了解下 `serverless` 命令的使用，因为下面的案例会使用到。
 
- Serverless Component 的目标是磨平不同云服务平台之间差异，你可以将它看作是可以更轻松地构建应用程序的依赖模块。目前 Serverless Component ，已经形成一个由社区贡献驱动的生态系统，你可以浏览和使用社区的所有组件，快速开发一款自己想要的应用。
+Serverless Component 的目标是磨平不同云服务平台之间差异，你可以将它看作是可以更轻松地构建应用程序的依赖模块。目前 Serverless Component ，已经形成一个由社区贡献驱动的生态系统，你可以浏览和使用社区的所有组件，快速开发一款自己想要的应用。
 
 <!--more-->
 
-##  Serverless Component 工作原理
+## Serverless Component 工作原理
 
-基于 Serverless Component 架构，你可以将任何云服务打包成一个组件。这个组件将含有一份 `serverless.yml` 配置文件，并且通过简单地进行配置就可以使用。我们拿 [@serverless/tencent-express](https://github.com/serverless-components/tencent-express) 来举🌰。
+基于 Serverless Component 架构，你可以将任何云服务打包成一个组件。这个组件将含有一份 `serverless.yml` 配置文件，并且通过简单地进行配置就可以使用。我们拿 [@serverless/tencent-express](https://github.com/serverless-components/tencent-express) 来举 🌰。
 
 如果我们要使用它，只需要新建一个项目 `express-demo`，然后修改 `serverless.yml` 配置如下：
 
 ```yaml
 express:
-  component: '@serverless/tencent-express'
+  component: "@serverless/tencent-express"
   inputs:
     region: ap-shanghai
 ```
@@ -37,15 +37,16 @@ express:
 之后我们就可以在 `app.js` 中轻松的编写基于 `express` 的接口服务了：
 
 ```js
-const express = require('express')
-const app = express()
-app.get('/', function(req, res) {
-  res.send('Hello Express')
-})
+const express = require("express");
+const app = express();
+app.get("/", function(req, res) {
+  res.send("Hello Express");
+});
 // 不要忘了导出，因为该组件会对它进行包装，输出成云函数
-module.exports = app
+module.exports = app;
 ```
-这背后所有的流程逻辑都是组件内部实现的，包括：云函数的部署，API网关的生成等。
+
+这背后所有的流程逻辑都是组件内部实现的，包括：云函数的部署，API 网关的生成等。
 
 下面是一张简单的组件依赖图：
 
@@ -55,7 +56,7 @@ module.exports = app
 
 ## 全栈应用实战
 
-接下来将介绍如何借助 Serverless Component 快速开发全栈Web应用。
+接下来将介绍如何借助 Serverless Component 快速开发全栈 Web 应用。
 
 > 在开始所有步骤前，需执行 `npm install -g serverless` 命令，全局安装 `serverless cli`。
 
@@ -76,12 +77,12 @@ module.exports = app
 进入目录 `api`，新增 `app.js` 文件，编写 `express` 服务代码，这里先新增一个路由 `/`，并返回当前服务器时间：
 
 ```js
-const express = require('express');
-const cors = require('cors');
+const express = require("express");
+const cors = require("cors");
 const app = express();
 
 app.use(cors());
-app.get('/', (req, res) => {
+app.get("/", (req, res) => {
   res.send(JSON.stringfy({ message: `Server time: ${new Date().toString()}` }));
 });
 module.exports = app;
@@ -93,23 +94,23 @@ module.exports = app;
 
 ```js
 // 这里初始是没有 env.js 模块的，第一次部署后会自动生成
-require('../env');
+require("../env");
 
-const Vue = require('vue');
+const Vue = require("vue");
 
 module.exports = new Vue({
-  el: '#root',
+  el: "#root",
   data: {
-    message: 'Click me!',
-    isVisible: true,
+    message: "Click me!",
+    isVisible: true
   },
   methods: {
     async queryServer() {
       const response = await fetch(window.env.apiUrl);
       const result = await response.json();
       this.message = result.message;
-    },
-  },
+    }
+  }
 });
 ```
 
@@ -166,7 +167,7 @@ $ serverless --debug
 
 这样一个基于 Serverless Component 的全栈应用就开发好了。赶紧点击你部署好的链接体验一下吧~
 
-[在线 Demo](https://br1ovx-efmogqe-1251556596.cos-website.ap-guangzhou.myqcloud.com/)
+[在线 Demo](https://up6pwd9-89hm718-1251556596.cos-website.ap-guangzhou.myqcloud.com/)
 
 ## 数据库连接
 
@@ -174,7 +175,7 @@ $ serverless --debug
 
 ### 准备
 
-想要操作数据库，必须先拥有一台数据库实例，[腾讯云Mysql云数据库](https://console.cloud.tencent.com/cdb) 现在也很便宜，可以购买一个最基本按量计费 `1核1G内存` 的 1小时收费不到 `4 毛钱`，是不是非常划算。购买好之后初始化配置，然后新增一个 `serverless` 数据库，同时新增一张 `users` 表：
+想要操作数据库，必须先拥有一台数据库实例，[腾讯云 Mysql 云数据库](https://console.cloud.tencent.com/cdb) 现在也很便宜，可以购买一个最基本按量计费 `1核1G内存` 的 1 小时收费不到 `4 毛钱`，是不是非常划算。购买好之后初始化配置，然后新增一个 `serverless` 数据库，同时新增一张 `users` 表：
 
 ```sql
 CREATE TABLE if not exists `test` ( `name` varchar (32) NOT NULL ,`email` varchar (64) NOT NULL ,`site` varchar (128) NOT NULL ) ENGINE = innodb DEFAULT CHARACTER SET = "utf8mb4" COLLATE = "utf8mb4_general_ci"
@@ -185,37 +186,37 @@ CREATE TABLE if not exists `test` ( `name` varchar (32) NOT NULL ,`email` varcha
 首先修改前端入口文件 `frontend/src/index.js` 新增相关函数操作：
 
 ```js
-require('../env');
+require("../env");
 
-const Vue = require('vue');
-const axios = require('axios');
+const Vue = require("vue");
+const axios = require("axios");
 module.exports = new Vue({
-  el: '#root',
+  el: "#root",
   data: {
     // ...
     form: {
-      name: '',
-      email: '',
-      site: '',
+      name: "",
+      email: "",
+      site: ""
     },
-    userList: [],
+    userList: []
   },
   methods: {
     // ...
     // 获取用户列表
     async getUsers() {
-      const res = await axios.get(window.env.apiUrl + 'users');
-      this.userList = res.data && res.data.data || [];
+      const res = await axios.get(window.env.apiUrl + "users");
+      this.userList = (res.data && res.data.data) || [];
     },
     // 新增一个用户
     async addUser() {
       const data = this.form;
-      const res = await axios.post(window.env.apiUrl + 'users', data);
+      const res = await axios.post(window.env.apiUrl + "users", data);
       console.log(res);
       if (res.data) {
         this.getUsers();
       }
-    },
+    }
   },
   mounted() {
     // 视图挂在后，获取用户列表
@@ -271,15 +272,15 @@ module.exports = new Vue({
 
 这里使用 `.env` 来进行数据库连接参数配置，在 `api` 目录下新增 `.env` 文件，将之前的数据库配置填入文件中，参考 `api/.env.example` 文件。然后添加并安装 `dotenv` 依赖，同时添加 `mysql2` 模块进行数据库操作，`body-parser` 模块进行 `POST` 请求时的 `body` 解析。
 
-之后新增后端api，进行数据库读写，修改后的 `api/app.js` 代码如下：
+之后新增后端 api，进行数据库读写，修改后的 `api/app.js` 代码如下：
 
 ```js
-'use strict';
-require('dotenv').config();
-const express = require('express');
-const cors = require('cors');
-const mysql = require('mysql2');
-const bodyParser = require('body-parser');
+"use strict";
+require("dotenv").config();
+const express = require("express");
+const cors = require("cors");
+const mysql = require("mysql2");
+const bodyParser = require("body-parser");
 
 // init mysql connection
 function initMysqlPool() {
@@ -292,7 +293,7 @@ function initMysqlPool() {
       port: DB_PORT,
       password: DB_PASSWORD,
       database: DB_DATABASE,
-      connectionLimit: 1,
+      connectionLimit: 1
     })
     .promise();
 
@@ -307,38 +308,40 @@ if (!app.promisePool) {
   app.promisePool = initMysqlPool();
 }
 
-app.get('/', (req, res) => {
-  res.send(JSON.stringify({ message: `Server time: ${new Date().toString()}` }));
+app.get("/", (req, res) => {
+  res.send(
+    JSON.stringify({ message: `Server time: ${new Date().toString()}` })
+  );
 });
 
 // get user list
-app.get('/users', async (req, res) => {
-  const [data] = await app.promisePool.query('select * from users');
+app.get("/users", async (req, res) => {
+  const [data] = await app.promisePool.query("select * from users");
   res.send(
     JSON.stringify({
-      data: data,
-    }),
+      data: data
+    })
   );
 });
 
 // add new user
-app.post('/users', async (req, res) => {
-  let result = '';
+app.post("/users", async (req, res) => {
+  let result = "";
   try {
     const { name, email, site } = req.body;
-    const [res] = await app.promisePool.query('INSERT into users SET ?', {
+    const [res] = await app.promisePool.query("INSERT into users SET ?", {
       name: name,
       email: email,
-      site: site,
+      site: site
     });
     result = {
       data: res && res.insertId,
-      message: 'Insert Success',
+      message: "Insert Success"
     };
   } catch (e) {
     result = {
       data: e,
-      message: 'Insert Fail',
+      message: "Insert Fail"
     };
   }
 
@@ -355,7 +358,7 @@ module.exports = app;
 ```yaml
 # ...
 api:
-  component: '@serverless/tencent-express'
+  component: "@serverless/tencent-express"
   # more configuration for @serverless/tencent-website,
   # refer to: https://github.com/serverless-components/tencent-express/blob/master/docs/configure.md
   inputs:
@@ -365,8 +368,8 @@ api:
     functionConf:
       # 这个是用来访问新创建数据库的私有网络，可以在你的数据库实例管理页面查看
       vpcConfig:
-          vpcId: vpc-6n5x55kb
-          subnetId: subnet-4cvr91js
+        vpcId: vpc-6n5x55kb
+        subnetId: subnet-4cvr91js
     apigatewayConf:
       protocol: https
 ```
@@ -375,10 +378,8 @@ api:
 
 [完整的模板仓库](https://github.com/yugasun/tencent-serverless-demo/tree/master/fullstack-application-vue)
 
-[在线Demo](https://br1ovx-efmogqe-1251556596.cos-website.ap-guangzhou.myqcloud.com)
+[在线 Demo](https://up6pwd9-89hm718-1251556596.cos-website.ap-guangzhou.myqcloud.com)
 
 ## 总结
 
 当然全栈方案，并没有这么简单，这里只是简单介绍，如何使用 Serverless Component ，快速实现一个全栈应用。如果要应用到实际的业务场景，我们还需考虑更多的问题。而且目前社区组件还不够完善，很多功能还需要我们自己去探索发现。也希望更多牛人加入到 Serverless Component 社区，贡献更多的优秀组件。
-
-
