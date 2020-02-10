@@ -581,11 +581,11 @@ $ serverless --debug
 之后控制台需要进行扫码登录验证腾讯云账号，扫码登录就好。等部署成功会发挥如下信息：
 
 ```bash
-backend:
-  region:              ap-guangzhou
-  functionName:        admin-system
-  apiGatewayServiceId: service-9wbas24i
-  url:                 https://service-9wbas24i-1251556596.gz.apigw.tencentcs.com/release/
+  backend:
+    region:              ap-guangzhou
+    functionName:        admin-system
+    apiGatewayServiceId: service-f1bhmhk4
+    url:                 https://service-f1bhmhk4-1251556596.gz.apigw.tencentcs.com/release/
 ```
 
 这里输出的 url 就是部署成功的 API 网关接口，可以直接访问测试。
@@ -732,13 +732,13 @@ export function destroy(id) {
 
 ### 3. 修改接口工具函数
 
-因为 `@serverless/tencent-website` 组件可以定义 `env` 参数，执行成功后它会在指定 `root` 目录自动生成 `env.js`，之后我们将它复制到 `frontend/src` 目录供 `frontend/src/main.js` 引入使用。
+因为 `@serverless/tencent-website` 组件可以定义 `env` 参数，执行成功后它会在指定 `root` 目录自动生成 `env.js`，然后在 `frontend/src/main.js` 中引入使用。
 它会挂载 `env` 中定义的接口变量到 `window` 对象上。比如这生成的 `env.js` 文件如下：
 
 ```js
 window.env = {};
 window.env.apiUrl =
-  "https://service-9wbas24i-1251556596.gz.apigw.tencentcs.com/release/";
+  "https://service-f1bhmhk4-1251556596.gz.apigw.tencentcs.com/release/";
 ```
 
 根据此文件我们来修改 `frontend/src/utils/request.js` 文件：
@@ -843,6 +843,7 @@ frontend:
     code:
       src: dist
       root: frontend
+      envPath: src # 相对于 root 指定目录，这里实际就是 frontend/src
       hook: npm run build
     env:
       # 依赖后端部署成功后生成的 url
@@ -886,16 +887,16 @@ $ serverless --debug
 
 ```bash
   frontend:
-    url: https://dtnu69vl-vos4lu-1251556596.cos-website.ap-guangzhou.myqcloud.com
+    url:  https://dtnu69vl-470dpfh-1251556596.cos-website.ap-guangzhou.myqcloud.com
     env:
-      apiUrl: https://service-9wbas24i-1251556596.gz.apigw.tencentcs.com/release/
+      apiUrl: https://service-f1bhmhk4-1251556596.gz.apigw.tencentcs.com/release/
     host:
       - https://sls-admin.yugasun.com (CNAME: sls-admin.yugasun.com.cdn.dnsv1.com）
   backend:
     region:              ap-guangzhou
     functionName:        admin-system
-    apiGatewayServiceId: service-9wbas24i
-    url:                 https://service-9wbas24i-1251556596.gz.apigw.tencentcs.com/release/
+    apiGatewayServiceId: service-f1bhmhk4
+    url:                 https://service-f1bhmhk4-1251556596.gz.apigw.tencentcs.com/release/
 ```
 
 > 注释：这里 `frontend` 中多输出了 `host`，是我们的 CDN 加速域名，可以通过配置 `@serverless/tencent-website` 组件的 `inputs.hosts` 来实现。有关 CDN 相关配置说明可以阅读 [基于 Serverless Component 的全栈解决方案 - 续集](https://yugasun.com/post/serverless-fullstack-vue-practice-pro.html)。当然，如果你不想配置 CDN，直接删除，然后访问 COS 生成的静态网站 url。
