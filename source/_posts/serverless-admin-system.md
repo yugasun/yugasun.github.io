@@ -1,11 +1,12 @@
 ---
-title: Serverless 后台管理系统实战
-desc: Serverless 实践系列文章，Serverless 后台管理系统实战
+title: Serverless + Egg.js 后台管理系统实战
+desc: Serverless 实践系列文章，Serverless + Egg.js 后台管理系统实战
 reward: true
 date: 2020-02-07 16:58:30
 tags:
   - Serverless
   - Serverless-Practice
+  - Egg.js
 ---
 
 > by [yugasun](https://yugasun.com) from [https://yugasun.com/post/serverless-admin-system.html](https://yugasun.com/post/serverless-admin-system.html)
