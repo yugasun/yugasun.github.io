@@ -18,6 +18,8 @@ tags:
 
 <!--more-->
 
+[在线预览](https://sls-admin.yugasun.com)
+
 ## 背景
 
 我在文章 [基于 Serverless Component 的全栈解决方案](https://yugasun.com/post/serverless-fullstack-vue-practice.html) 中讲述了，如何将一个基于 `Vue.js` 的前端应用和基于 `Express` 的后端服务，快速部署到腾讯云上。虽然受到不少开发者的喜爱，但是很多开发者私信问我，这还是一个 `Demo` 性质的项目而已，有没有更加实用性的解决方案。而且他们实际开发中，很多使用的正是 `Egg.js` 框架，能不能提供一个 `Egg.js` 的解决方案？
