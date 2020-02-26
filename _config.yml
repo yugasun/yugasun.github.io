@@ -10,6 +10,7 @@ keywords: "Yuga Sun, yugasun, 前端博客"
 author: yugasun
 language: zh-CN
 timezone: Asia/Shanghai
+beian: 京ICP备17023009号-1
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -75,26 +76,26 @@ search:
   limit: 10000
 
 jsonContent:
-    meta: true
-    keywords: false # language name option
-    pages: false
-    posts:
-      title: true
-      slug: true
-      date: true
-      updated: true
-      comments: true
-      path: true
-      link: true
-      permalink: true
-      excerpt: true
-      keywords: true # but only if root keywords option language was set
-      text: true
-      raw: false
-      content: false
-      categories: true
-      tags: true
-      desc: true
+  meta: true
+  keywords: false # language name option
+  pages: false
+  posts:
+    title: true
+    slug: true
+    date: true
+    updated: true
+    comments: true
+    path: true
+    link: true
+    permalink: true
+    excerpt: true
+    keywords: true # but only if root keywords option language was set
+    text: true
+    raw: false
+    content: false
+    categories: true
+    tags: true
+    desc: true
 
 # pwa setttings
 pwa:
