@@ -1,6 +1,6 @@
 ---
-title: 如何管理 Serverless 多环境配置
-desc: Serverless 实践系列文章，如何管理 Serverless 多环境配置
+title: Serverless 多环境配置方案探索
+desc: Serverless 实践系列文章，Serverless 多环境配置方案探索
 reward: true
 date: 2020-03-11 19:48:32
 tags:
