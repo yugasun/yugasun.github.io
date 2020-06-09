@@ -68,7 +68,7 @@ $ npm run build
 $ npm install serverless -g
 ```
 
-#### 3. 配置 severless.yml
+#### 3. 配置 serverless.yml
 
 ```yaml
 org: orgDemo
