@@ -1,5 +1,5 @@
 ---
-title: 如何将 Web 框架迁移到 Serverless 上
+title: 如何将 Web 框架迁移到 Serverless
 desc: Serverless 实践系列文章，如何将 Web 框架迁移到 Serverless
 reward: true
 date: 2020-06-30 18:03:37
