@@ -158,6 +158,7 @@ function createServer(requestListener, serverListenCallback) {
     .on("error", (error) => {
       // ...
     });
+  server.listen(`/tmp/server-${server._socketPathSuffix}.sock`)
   return server;
 }
 ```
