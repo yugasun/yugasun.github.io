@@ -262,6 +262,7 @@ exports.handler = async (event, context) => {
   // 这里和 Express 略有区别
   const server = createServer(app.callback());
   const result = await proxy(server, event, context, "PROMISE").promise;
+  return result;
 };
 ```
 
