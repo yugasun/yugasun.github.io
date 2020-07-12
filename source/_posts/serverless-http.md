@@ -238,11 +238,12 @@ module.exports = app;
 
 ```js
 const { createServer, proxy } = require("tencent-serverless-http");
-const app = require("./app");
+const app = require("./sls");
 
 exports.handler = async (event, context) => {
   const server = createServer(app);
   const result = await proxy(server, event, context, "PROMISE").promise;
+  return result;
 };
 ```
 
