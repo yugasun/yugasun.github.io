@@ -114,21 +114,21 @@ Express 核心架构图如下：
 
 对于 Node.js 的 HTTP Server，可以通过调用 `server.listen()` 方法来启动服务，`listen()` 方法支持多种参数类型，主要有两种监听方式 `从一个TCP端口启动监听` 和 `从一个UNIX Socket套接字启动监听`。
 
-> * `server.listen(port[, hostname][, backlog][, callback])`：从一个TCP端口启动监听
-> * `server.listen(path, [callback])`：从一个UNIX Domain Socket启动监听
+> - `server.listen(port[, hostname][, backlog][, callback])`：从一个 TCP 端口启动监听
+> - `server.listen(path, [callback])`：从一个 UNIX Domain Socket 启动监听
 
 服务器创建后，我们可以像下面这样启动服务器：
 
 ```js
 // 从'127.0.0.1'和3000端口开始接收连接
-server.listen(3000, '127.0.0.1', () => {});
+server.listen(3000, "127.0.0.1", () => {});
 // 从 UNIX 套接字所在路径 path 上监听连接
-server.listen('path/to/socket', () => {})
+server.listen("path/to/socket", () => {});
 ```
 
 无论是 `TCP Socket` 还是 `Unix Domain Socket`，每个 Socket 都是唯一的。`TCP Socket` 通过 `IP和端口` 描述，而 `Unix Domain Socket` 通过 `文件路径` 描述。
 
-TCP属于传输层的协议，使用 TCP Socket 进行通讯时，需要经过传输层 TCP/IP 协议的解析。
+TCP 属于传输层的协议，使用 TCP Socket 进行通讯时，需要经过传输层 TCP/IP 协议的解析。
 
 而 `Unix Domain Socket` 可用于不同进程间的通讯和传递，使用 `Unix Domain Socket` 进行通讯时不需要经过传输层，也不需要使用 `TCP/IP 协议`。所以，理论上讲 `Unix Domain Socket` 具有更好的传输效率。
 
@@ -158,7 +158,7 @@ function createServer(requestListener, serverListenCallback) {
     .on("error", (error) => {
       // ...
     });
-  server.listen(`/tmp/server-${server._socketPathSuffix}.sock`)
+  server.listen(`/tmp/server-${server._socketPathSuffix}.sock`);
   return server;
 }
 ```
@@ -256,7 +256,7 @@ exports.handler = async (event, context) => {
 
 ```js
 const { createServer, proxy } = require("tencent-serverless-http");
-const app = require("./app");
+const app = require("./sls");
 
 exports.handler = async (event, context) => {
   // 这里和 Express 略有区别
