@@ -1,5 +1,5 @@
 [submodule "themes/yilia"]
 	path = themes/yilia
-	url = https://github.com/yugasun/hexo-theme-yilia.git
+	url = git@github.com:yugasun/hexo-theme-yilia.git
   branch = blog
 	shallow = true
