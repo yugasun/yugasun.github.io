@@ -1,7 +1,5 @@
 # Yuga Sun's Blog
 
-[![Build Status](https://travis-ci.org/yugasun/yugasun.github.io.svg?branch=master)](https://travis-ci.org/yugasun/yugasun.github.io)
-
 个人博客，基于 [Hexo](https://hexo.io/) 框架开发，并基于主题 [hexo-theme-yilia](https://github.com/litten/hexo-theme-yilia) 二次开发。
 
 ## 添加文章
@@ -24,7 +22,7 @@ yarn test
 
 ## 发布博客
 
-`master` 分支更新时会触发 `Webhook` 钩子，然后在自己的服务器上自动构建部署，详见个人博文：[使用Github的webhooks进行网站自动化部署](https://yugasun.com/post/using-github-webhooks-auto-deploy-site.html)
+`master` 分支更新时会触发 `Webhook` 钩子，然后  在自己的服务器上自动构建部署，详见个人博文：[使用 Github 的 webhooks 进行网站自动化部署](https://yugasun.com/post/using-github-webhooks-auto-deploy-site.html)
 
 ## Feature
 
