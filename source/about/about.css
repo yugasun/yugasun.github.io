@@ -370,6 +370,14 @@ section a:hover {
   cursor: pointer;
   display: none;
 }
+
+#ericsson-work {
+  display: none;
+}
+
+#edication-section {
+  display: none;
+}
 @media print {
   .page {
     margin: 0 auto;
@@ -386,5 +394,13 @@ section a:hover {
   }
   .box {
     padding: 10px 15px;
+  }
+
+  #ericsson-work {
+    display: block;
+  }
+
+  #edication-section {
+    display: block;
   }
 }
